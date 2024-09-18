@@ -1,15 +1,15 @@
-:root{
-    --red-200: #600F18;
-    --red-100: #D26C6A;
-    --gray-100: #E5E5E5;
-    --gradient: linear-gradient(90deg, #D26C6A, #600F18);
-    --rubik-font: "Rubik", sans-serif;
-    --ubuntu-font: "Ubuntu", sans-serif;
+:root {
+  --red-200: #600f18;
+  --red-100: #d26c6a;
+  --gray-100: #e5e5e5;
+  --gradient: linear-gradient(90deg, #d26c6a, #600f18);
+  --rubik-font: "Rubik", sans-serif;
+  --ubuntu-font: "Ubuntu", sans-serif;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    font-family: var(--rubik-font);
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: var(--rubik-font);
+  box-sizing: border-box;
 }
