@@ -19,6 +19,10 @@
   justify-content: center;
 }
 
+.left-section h2 {
+  font-family: var(--ubuntu-font);
+}
+
 .form-wrapper {
   width: 100%;
   max-width: 800px;
@@ -42,7 +46,7 @@ p {
 }
 
 .input-group input,
-select {
+.input-group select {
   border: 1px solid #fff;
   width: 100%;
   padding: 12px;
@@ -135,7 +139,6 @@ select {
   font-size: 0.8rem;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
   .login-container {
     flex-direction: column;

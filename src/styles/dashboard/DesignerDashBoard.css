@@ -1,0 +1,168 @@
+/* General Layout */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f5f5; /* Light gray background for a clean look */
+}
+
+.sidebar {
+  background-color: #600f18;
+  color: #ffffff;
+  width: 250px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar .brand {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 5px;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover {
+  background-color: #d26c6a;
+  color: #fff;
+}
+
+.sidebar .pro-upgrade button {
+  background-color: #d26c6a;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar .pro-upgrade button:hover {
+  background-color: #600f18;
+  border: 1px solid #d26c6a;
+}
+
+/* Main Dashboard Area */
+.dashboard-main {
+  flex: 1;
+  padding: 30px;
+  background-color: #ffffff; /* White background for clean space */
+  color: #333333;
+  overflow-y: auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #600f18; /* Using the main accent color */
+}
+
+.dashboard-metrics {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.metric-card {
+  background-color: #ffffff; /* White for simplicity */
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  flex: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.metric-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.metric-card h2 {
+  font-size: 1.25rem;
+  color: #600f18;
+  margin-bottom: 10px;
+}
+
+.metric-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #d26c6a;
+}
+
+.metric-icon {
+  font-size: 2.5rem;
+  color: #d26c6a;
+  margin-bottom: 15px;
+}
+
+/* Design Grid */
+.design-list {
+  margin-top: 40px;
+}
+
+.design-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.design-card {
+  background-color: #ffffff; /* Clean white for card */
+  border: 1px solid #dddddd;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.design-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.design-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.design-card h3 {
+  font-size: 1.25rem;
+  color: #600f18;
+  margin-bottom: 10px;
+}
+
+.design-card p {
+  font-size: 1rem;
+  color: #555555;
+}
