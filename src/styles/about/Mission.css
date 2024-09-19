@@ -1,0 +1,83 @@
+.mission__vision__container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding: 30px 30px;
+}
+
+.mission__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: fit-content;
+  gap: 25px;
+}
+
+.mission__container > div > h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 25px;
+  font-family: var(--ubuntu-font);
+}
+
+.mission__container > div > p {
+  font-size: 18px;
+}
+
+.mission__vision__image {
+  height: 100%;
+  width: 100%;
+  border-radius: 40% 0 40% 0;
+  object-fit: cover;
+  margin-bottom: 30px;
+}
+
+.image1 {
+  display: none;
+}
+
+.mission__vision__image2 {
+  height: 100%;
+  width: 100%;
+  border-radius: 40% 0 40% 0;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .mission__vision__container {
+    padding: 30px 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mission__container {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: 50% 50%;
+  }
+
+  .mission__vision__image {
+    height: 400px;
+    border-radius: 50% 0 50% 0;
+    margin-bottom: 0px;
+  }
+
+  .mission__container > div > h2 {
+    text-align: start;
+  }
+
+  .mission__vision__image2 {
+    display: none;
+  }
+
+  .image1 {
+    display: block;
+  }
+}
+
+@media (min-width: 1280px) {
+  .mission__vision__container {
+    padding: 30px 100px;
+  }
+}

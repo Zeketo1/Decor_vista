@@ -1,4 +1,3 @@
-import './App.css'
 import SystemRoutes from './routes/SystemRoutes'
 
 function App() {

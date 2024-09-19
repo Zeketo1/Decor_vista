@@ -1,0 +1,147 @@
+.customer-reviews-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.customer-reviews-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.reviews-title {
+  font-size: 23px;
+  font-family: var(--ubuntu-font);
+}
+
+.reviews-description {
+  font-size: 15px;
+  opacity: 0.7;
+}
+
+.swiper-container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .swiper-container {
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  .swiper-container {
+    width: 70%;
+  }
+}
+
+.swiper-slide-custom {
+  flex-shrink: 0;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 640px) {
+  .swiper-slide-custom {
+    width: fit-content;
+  }
+}
+
+.review-card {
+  display: flex;
+  height: 150px;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  background-color: white;
+  gap: 0.5rem;
+  border-radius: 10px;
+}
+
+@media (min-width: 640px) {
+  .review-card {
+    padding: 1rem 2.5rem;
+    height: 200px;
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .review-card {
+    height: 300px;
+  }
+}
+
+.review-image {
+  height: 90px;
+}
+
+@media (min-width: 640px) {
+  .review-image {
+    height: 100px;
+  }
+}
+
+@media (min-width: 768px) {
+  .review-image {
+    height: 150px;
+  }
+}
+
+.review-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+@media (min-width: 1024px) {
+  .review-content {
+    gap: 0.75rem;
+  }
+}
+
+.review-name {
+  font-family: var(--ubuntu-font);
+  font-size: 15px;
+}
+
+.review-job {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .review-job {
+    display: block;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+}
+
+.review-comment {
+  max-width: 370px;
+  font-size: 12px;
+}
+
+.review-divider {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .review-divider {
+    display: block;
+    height: 2px;
+    width: 50%;
+    background-color: #c4c4c4;
+    opacity: 0.5;
+  }
+}
+
+.review-star {
+  height: 10px;
+  width: 50px;
+}
