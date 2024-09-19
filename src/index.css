@@ -5,6 +5,7 @@
     --gradient: linear-gradient(90deg, #D26C6A, #600F18);
     --rubik-font: "Rubik", sans-serif;
     --ubuntu-font: "Ubuntu", sans-serif;
+    --padding: 2rem 4rem;
 }
 
 *{
