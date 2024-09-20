@@ -1,0 +1,71 @@
+.subscription-container{
+    height: 50vh;
+    background: url("../../assets/images/image_3.jpg");
+    background-size: cover;
+    background-position: 100%;
+    position: relative;
+    margin: 0 4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.subscription-container::before{
+    content: "";
+    background: #600f1873;
+    background: linear-gradient(-45deg, #4f0911b0, #2e050a44);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+}
+
+.subscription-container div{
+    position: relative;
+    color: white;
+    z-index: 40;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
+}
+
+.subscription-container div span{
+    font-weight: 500;
+    color: #ebdee0;
+}
+
+.subscription-container div p{
+    font-size: 27px;
+    padding: 0 16rem;
+    font-weight: bold;
+}
+
+.subscription-container div form{
+    display: flex;
+    background: #fff;
+    padding: .2rem 1.3rem;
+    gap: .5rem;
+    width: 40%;
+    margin-top: 1rem;
+    border-radius: 25px;
+}
+
+.subscription-container div form input{
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.subscription-container div form button{
+    background: linear-gradient(160deg, #D26C6A, #600F18);
+    border: none;
+    height: 2.5rem;
+    width: 12rem;
+    border-radius: 25px;
+    color: white;
+    margin-right: -1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
