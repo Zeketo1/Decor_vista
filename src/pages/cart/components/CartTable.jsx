@@ -114,7 +114,7 @@ const CartTable = () => {
               <p className="coupon__shipping__text">Shipping</p>
               <div className="shipping__fee__container">
                 <label className="radio__styling">
-                  <input type="radio" name="shipping" value="paid" />
+                  <input type="radio" name="shipping" value="paid" checked />
                   <p>Fate rate: </p>
                 </label>
                 <p>$30</p>
