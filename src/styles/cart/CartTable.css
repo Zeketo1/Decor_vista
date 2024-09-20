@@ -185,7 +185,7 @@
   padding: 0 40px 20px 40px;
   border-bottom: 1px solid gray;
   overflow: hidden;
-  max-height: 50px; /* Initial height */
+  max-height: 49px; /* Initial height */
   transition: max-height 0.4s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
