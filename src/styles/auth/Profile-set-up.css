@@ -1,0 +1,64 @@
+/* --------------------------------------------------------------designer dashboard styles-------------------------------------------------------------- */
+
+.designer-profile-setup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--gradient);
+}
+
+.designer-profile-form-wrapper {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+}
+
+.designer-input-group {
+  margin-bottom: 1.5rem;
+}
+
+.designer-input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #bebbbb;
+}
+
+.designer-input-group input,
+.designer-input-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: var(--red-200);
+  padding-inline: 1rem;
+  background: transparent;
+  outline: none;
+}
+
+.designer-error-message {
+  color: var(--red-200);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.designer-submit-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #600f18;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.designer-submit-btn:hover {
+  background-color: #600f18c3;
+}
+/* -------------------------------------------------------------------------close------------------------------------------------------------------------------- */
