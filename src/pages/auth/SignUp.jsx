@@ -5,17 +5,20 @@ import video1 from "../../assets/videos/3773486-hd_1920_1080_30fps.mp4";
 import video2 from "../../assets/videos/3444433-hd_1920_1080_30fps.mp4";
 import { motion } from "framer-motion";
 import { MdEmail, MdPassword } from "react-icons/md";
-import { BiPhoneCall } from "react-icons/bi";
+import { BiLoaderAlt, BiPhoneCall } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
 import VideoPlayer from "./utils/VideoPlayer";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { BASE_URL } from "../utils";
+import axios from "axios";
+import { useState } from "react";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [userParam, setUserParam] = useSearchParams();
-
+  const [isLoading, setIsLoading] = useState(false);
   // Define validation schema using Yup
   const validationSchema = Yup.object({
     // Optional username
@@ -52,9 +55,22 @@ const SignUp = () => {
       role: "",
     },
     validationSchema,
-    onSubmit: (values) => {
-      console.log("Form Submitted:", values);
-
+    onSubmit: async (values) => {
+      setIsLoading(true);
+      try {
+        const response = await axios.post(BASE_URL + "/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        });
+        const data = await response.json();
+        console.log(data);
+      } catch (e) {
+        console.log(e.message);
+      }
+      setIsLoading(false);
       // Set the user role based on the formData.role value
       const userRole = values.role === "designer" ? "designer" : "user";
 
@@ -199,7 +215,7 @@ const SignUp = () => {
 
             <div className="submit-region">
               <button type="submit" className="signin-btn">
-                Sign up
+                {isLoading ? <BiLoaderAlt className="loader" /> : "Sign up"}
               </button>
               <p className="signup-link">
                 Already a member? <Link to={"/auth/login"}>Login</Link>

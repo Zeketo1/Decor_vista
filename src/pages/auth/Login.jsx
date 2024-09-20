@@ -9,10 +9,13 @@ import { Link, useNavigate } from "react-router-dom";
 import VideoPlayer from "./utils/VideoPlayer";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useState } from "react";
+import { BiLoaderAlt } from "react-icons/bi";
 
 const Login = () => {
   const navigate = useNavigate();
   const getUserRole = localStorage.getItem("userRole");
+  const [isLoading, setIsLoading] = useState(false);
 
   // Formik form management and Yup validation schema
   const formik = useFormik({
@@ -27,14 +30,15 @@ const Login = () => {
       password: Yup.string().required("Password is required"),
     }),
     onSubmit: (values) => {
+      setIsLoading(true);
       console.log("Form Submitted:", values);
       const userRole = getUserRole;
-
+      setIsLoading(false);
       // Navigate based on the role stored in localStorage
       if (userRole === "designer") {
-        navigate("/auth/designer-profile-settings");
+        navigate("/auth/profile-settings?role=designer");
       } else if (userRole === "user") {
-        navigate("/auth/user-profile-settings");
+        navigate("/auth/profile-settings?role=user");
       } else {
         console.log("Unknown role");
       }
@@ -85,7 +89,7 @@ const Login = () => {
 
             <div className="submit-region">
               <button type="submit" className="signin-btn">
-                Log in
+                {isLoading ? <BiLoaderAlt className="loader" /> : "Log in"}
               </button>
               <p className="signup-link">
                 Not a member? <Link to="/auth/sign-up">Sign up</Link>

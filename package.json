@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.5",
+    "axios": "^1.7.7",
     "decovista": "file:",
     "formik": "^2.4.6",
     "framer-motion": "^11.5.4",

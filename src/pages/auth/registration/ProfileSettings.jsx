@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 // Designer Profile Setup Component
-const DesignerProfileSetup = () => {
+const ProfileSetup = () => {
+  const userRole = localStorage.getItem("userRole");
   const navigate = useNavigate();
 
   // Formik for form handling and validation using Yup
@@ -28,7 +29,11 @@ const DesignerProfileSetup = () => {
     }),
     onSubmit: (values) => {
       console.log("Profile Setup Submitted:", values);
-      navigate("/auth/designer-dashboard");
+      navigate(
+        userRole == "designer"
+          ? "/dashboard/designer-dashboard"
+          : "/dashboard/user-dashboard"
+      );
     },
   });
 
@@ -104,4 +109,4 @@ const DesignerProfileSetup = () => {
   );
 };
 
-export default DesignerProfileSetup;
+export default ProfileSetup;
