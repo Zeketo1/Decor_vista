@@ -1,14 +1,14 @@
-.about__banner__container {
+.banner__container {
   display: flex;
   justify-content: start;
   align-items: center;
   font-family: var(--ubuntu-font);
   height: 250px;
   background: linear-gradient(90deg, #000000b0, #000000b0),
-    url("../../assets/images/about-banner2.jpg");
+    url("../../assets/images/pexels-pixabay-276724.jpg");
   background-size: cover;
+  background-position: bottom;
   background-blend-mode: soft-light;
-  background-position: center;
   width: 100%;
   color: black;
   padding: 0 50px;
@@ -37,7 +37,7 @@
 }
 
 @media (min-width: 768px) {
-  .about__banner__container {
+  .banner__container {
     padding: 0 100px;
     height: 350px;
   }

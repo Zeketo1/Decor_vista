@@ -1,17 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../../styles/about/Intro.css";
 import chair from "../../../assets/images/chair.png";
+import blackChair from "../../../assets/images/slide1.png";
+import vase from "../../../assets/images/vase.png";
 import { GiRecycle } from "react-icons/gi";
-import { PiCheckCircleThin, PiHeadsetThin, PiMoneyWavyThin, PiPaintBrushThin } from "react-icons/pi";
+import { motion } from "framer-motion";
+import {
+  PiCheckCircleThin,
+  PiHeadsetThin,
+  PiMoneyWavyThin,
+  PiPaintBrushThin,
+} from "react-icons/pi";
 
 const Intro = () => {
   const whyOptions = [
-    { icon: <PiPaintBrushThin className="icon"/>, text: "Exclusive Designs" },
-    { icon: <PiCheckCircleThin className="icon"/>, text: "Quality Products" },
-    { icon: <PiMoneyWavyThin className="icon"/>, text: "Affordable Luxury" },
-    { icon: <PiHeadsetThin className="icon"/>, text: "24/7 Support" },
+    { icon: <PiPaintBrushThin className="icon" />, text: "Exclusive Designs" },
+    { icon: <PiCheckCircleThin className="icon" />, text: "Quality Products" },
+    { icon: <PiMoneyWavyThin className="icon" />, text: "Affordable Luxury" },
+    { icon: <PiHeadsetThin className="icon" />, text: "24/7 Support" },
     // { icon: <GiRecycle className="icon"/>, text: "Sustainable Choices" },
   ];
+
+  // Framer-motion things
+  const [banner, setBanner] = useState(0);
+  const imageSliders = [
+    { image: chair, direction: "y", value: -300 },
+    { image: blackChair, direction: "x", value: 300 },
+    { image: vase, direction: "y", value: 300 },
+  ];
+
+  const nextSlide = () => {
+    setInterval(() => {
+      setBanner(banner === imageSliders.length - 1 ? 0 : banner + 1);
+    }, 3000);
+  };
+
+  useEffect(() => {
+    setBanner(0);
+
+    clearInterval(nextSlide);
+  }, []);
+
+  useEffect(() => {
+    nextSlide();
+  }, [banner]);
+
+  const container = (axis, value, delay) => ({
+    hidden: { [axis]: value, opacity: 0 }, 
+    visible: {
+      [axis]: 0, 
+      opacity: 1,
+      transition: { duration: 0.5, delay: delay },
+    },
+  });
 
   return (
     <div className="intro__parnter">
@@ -42,7 +83,20 @@ const Intro = () => {
           </p>
         </div>
         <div className="intro">
-          <img src={chair} alt="" height={380} />
+          {imageSliders.map(
+            ({ image, direction, value }, i) =>
+              banner === i && (
+                <motion.img
+                  variants={container(direction, value, 0.8)}
+                  initial="hidden"
+                  animate="visible"
+                  src={image}
+                  key={i}
+                  alt=""
+                  height={380}
+                />
+              )
+          )}
         </div>{" "}
       </div>
       <div className="intro__services">

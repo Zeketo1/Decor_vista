@@ -1,8 +1,13 @@
 import React from 'react'
+import Banner from './components/Banner'
+import ContactForm from './components/ContactForm'
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <div style={{backgroundColor: "var(--gray-100"}}>
+      <Banner />
+      <ContactForm />
+    </div>
   )
 }
 

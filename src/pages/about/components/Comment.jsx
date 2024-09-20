@@ -24,7 +24,6 @@ const Comment = () => {
           duis
         </p>
       </div>
-
       <Swiper
         effect={"flip"}
         grabCursor={true}

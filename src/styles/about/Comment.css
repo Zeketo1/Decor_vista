@@ -60,8 +60,9 @@
   padding: 1rem;
   background-color: white;
   gap: 0.5rem;
-  border-radius: 10px;
+  border-radius: 45% 0 45% 0;
 }
+
 
 @media (min-width: 640px) {
   .review-card {

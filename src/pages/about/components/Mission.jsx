@@ -2,6 +2,7 @@ import React from "react";
 import "../../../styles/about/Mission.css";
 import mission from "../../../assets/images/mission.jpg";
 import vision from "../../../assets/images/vision.jpg";
+import { motion } from "framer-motion";
 
 const Mission = () => {
   return (
@@ -24,10 +25,22 @@ const Mission = () => {
             inspire but also stand the test of time.
           </p>
         </div>
-        <img src={mission} alt="" className="mission__vision__image" />
+        <motion.img
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          src={mission}
+          alt=""
+          className="mission__vision__image"
+        />
       </div>
       <div className="mission__container">
-        <img src={vision} alt="" className="mission__vision__image image1" />
+        <motion.img
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          src={vision}
+          alt=""
+          className="mission__vision__image image1"
+        />
         <div>
           <h2>Our Vision</h2>
           <p>
@@ -42,7 +55,13 @@ const Mission = () => {
             for.
           </p>
         </div>
-        <img src={vision} alt="" className="mission__vision__image2" />
+        <motion.img
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          src={vision}
+          alt=""
+          className="mission__vision__image2"
+        />
       </div>
     </div>
   );
