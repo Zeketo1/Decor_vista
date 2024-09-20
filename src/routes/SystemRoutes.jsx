@@ -7,7 +7,7 @@ import Cart from "../pages/cart/Cart";
 import DesignerDashboard from "../pages/dashboard/DesignerDashBoard";
 import UserDashBoard from "../pages/dashboard/UserDashBoard";
 import DashBoardLayout from "../pages/dashboard/components/DashBoardLayout";
-import ProfileSetup from "../pages/auth/registration/ProfileSettings";
+import { Login, ProfileSettings, SignUp } from "../pages/auth/exports";
 
 const SystemRoutes = () => {
   return (
@@ -17,10 +17,9 @@ const SystemRoutes = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
-        <Route
-          path="/auth/profile-settings"
-          element={<ProfileSetup />}
-        />
+        <Route path="/auth/sign-up" element={<SignUp />} />
+        <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/profile-settings" element={<ProfileSettings />} />
         <Route path="/dashboard/*" element={<DashBoardLayout />}>
           <Route path="user-dashboard" element={<UserDashBoard />} />
           <Route path="designer-dashboard" element={<DesignerDashboard />} />

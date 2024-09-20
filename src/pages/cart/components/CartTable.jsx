@@ -3,7 +3,6 @@ import "../../../styles/cart/CartTable.css";
 import { PiBagThin } from "react-icons/pi";
 import test from "../../../assets/images/mission.jpg";
 import { GoPlus } from "react-icons/go";
-import { FaMinus } from "react-icons/fa";
 import { FiMinus } from "react-icons/fi";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";

@@ -53,8 +53,8 @@ const Login = () => {
           animate={{ y: 0, opacity: 1 }}
           className="form-wrapper"
         >
-          <h2>Welcome Back</h2>
-          <p>Sign in to your account to continue</p>
+          <h2 className="h2">Welcome Back</h2>
+          <p className="p">Sign in to your account to continue</p>
           <form onSubmit={formik.handleSubmit}>
             {formik.errors.email && formik.touched.email && (
               <p className="error-message">{formik.errors.email}*</p>
