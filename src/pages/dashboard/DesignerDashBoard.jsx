@@ -22,7 +22,7 @@ const DesignerDashboard = () => {
                 Welcome{" "}
                 <motion.span
                   initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1, transition: { delay: 1 } }}
+                  animate={{ opacity: 1, transition: { delay: 1 } }}
                 >
                   Dubby Bantin
                 </motion.span>{" "}
@@ -39,7 +39,14 @@ const DesignerDashboard = () => {
         </section>
 
         <section className="dashboard-cards">
-          <div className="card">
+          <motion.div
+            initial={{ y: -40 }}
+            animate={{
+              y: 0,
+              transition: { delay: 0.2, type: "spring" },
+            }}
+            className="card"
+          >
             <img src={vector2} alt="" />
             <div className="icon">
               <BsCollection />
@@ -48,9 +55,15 @@ const DesignerDashboard = () => {
             <h1 className="amount">
               3. <span>00</span>{" "}
             </h1>
-            <button className="trigger_button">View projects</button>
-          </div>
-          <div className="card">
+          </motion.div>
+          <motion.div
+            initial={{ y: -40 }}
+            animate={{
+              y: 0,
+              transition: { delay: 0.3, type: "spring" },
+            }}
+            className="card"
+          >
             <div className="icon">
               <AiFillStar />
             </div>
@@ -59,10 +72,16 @@ const DesignerDashboard = () => {
               {" "}
               12. <span>00</span>
             </h1>
-            <button className="trigger_button">View requests</button>
             <img src={vector2} alt="" />
-          </div>
-          <div className="card">
+          </motion.div>
+          <motion.div
+            initial={{ y: -40 }}
+            animate={{
+              y: 0,
+              transition: { delay: 0.3, type: "spring" },
+            }}
+            className="card"
+          >
             <div className="icon">
               <MdOutlineDesignServices />
             </div>
@@ -71,9 +90,8 @@ const DesignerDashboard = () => {
             <h1 className="amount">
               2. <span>00</span>
             </h1>
-            <button className="trigger_button">View requests</button>
             <img src={vector3} alt="" />
-          </div>
+          </motion.div>
         </section>
         {/* project gallery */}
         <section className="">

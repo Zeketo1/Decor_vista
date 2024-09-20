@@ -91,7 +91,7 @@
   justify-content: center;
   flex-direction: column;
   gap: 0.7rem;
-  transition: all 0.3s linear;
+  transition: all 0.1s linear;
   /* overflow: hi; */
   position: relative;
   overflow: hidden;
@@ -102,7 +102,9 @@
 }
 
 .card .icon {
-  background: linear-gradient(90deg, var(--red-200), var(--red-100));
+  /* background: linear-gradient(90deg, var(--red-200), var(--red-100)); */
+  background: white;
+  box-shadow: 2px 2px 3px rgba(186, 185, 185, 0.479);
   padding: 1rem;
   border-radius: 50%;
   width: 50px;
@@ -111,7 +113,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--red-100);
   position: relative;
 }
 
@@ -151,17 +153,22 @@
 
 /* Navigation Sidebar */
 
-.navigation {
-  background-color: var(--red-200);
+.navigation,
+.top_nav {
   display: flex;
   flex-direction: column;
-  z-index: 10;
   gap: 5rem;
-  padding: 1.25rem;
-  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
+}
+
+.navigation {
+  z-index: 10;
+  position: absolute;
+  padding: 1.25rem;
+  background-color: var(--red-200);
+  justify-content: space-between;
   box-shadow: 0 4px 6px rgba(31, 41, 55, 0.5);
 }
 
@@ -266,11 +273,11 @@
 }
 
 .gallery-item {
-  /* background-color: white; */
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  width: 15rem;
 }
 
 .gallery-item:hover {
@@ -289,6 +296,6 @@
 }
 
 .gallery-info h3 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #333;
 }

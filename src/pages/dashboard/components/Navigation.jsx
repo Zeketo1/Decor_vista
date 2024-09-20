@@ -1,13 +1,14 @@
 import { motion, useAnimationControls } from "framer-motion";
 import { useState, useEffect } from "react";
 import {
-  FaRegHeart,
+  // FaRegHeart,
   FaRegUserCircle,
   FaPencilAlt,
   FaInbox,
   FaHome,
 } from "react-icons/fa"; // Importing icons from Font Awesome
 import NavigationLink from "./NavigationLinks";
+import { IoLogOutOutline } from "react-icons/io5";
 
 const containerVariants = {
   close: {
@@ -41,6 +42,7 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const containerControls = useAnimationControls();
   const svgControls = useAnimationControls();
+  const userRole = localStorage.getItem("userRole"); // Retrieve user role from local storage
 
   useEffect(() => {
     if (isOpen) {
@@ -62,53 +64,61 @@ const Navigation = () => {
         initial="close"
         className="navigation"
       >
-        <div className="nav-header">
-          <div className="logo" />
-          <button className="toggle-button" onClick={handleOpenClose}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1}
-              stroke="currentColor"
-              className="toggle-icon"
-            >
-              <motion.path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                variants={svgVariants}
-                animate={svgControls}
-                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                transition={{
-                  duration: 0.5,
-                  ease: "easeInOut",
-                }}
-              />
-            </svg>
-          </button>
+        <div className="top_nav">
+          <div className="nav-header">
+            <div className="logo" />
+            <button className="toggle-button" onClick={handleOpenClose}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1}
+                stroke="currentColor"
+                className="toggle-icon"
+              >
+                <motion.path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  variants={svgVariants}
+                  animate={svgControls}
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeInOut",
+                  }}
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Dynamic Navigation Links */}
+          <div className="nav-links">
+            <NavigationLink name="Home">
+              <FaHome className="icon" />
+            </NavigationLink>
+
+            {userRole === "designer" && (
+              <>
+                <NavigationLink name="My Designs">
+                  <FaPencilAlt className="icon" />{" "}
+                  {/* For designers to manage their designs */}
+                </NavigationLink>
+                <NavigationLink name="Client Requests">
+                  <FaInbox className="icon" /> {/* For client requests */}
+                </NavigationLink>
+              </>
+            )}
+
+            <NavigationLink name="Profile">
+              <FaRegUserCircle className="icon" />{" "}
+              {/* User or designer profile settings */}
+            </NavigationLink>
+          </div>
         </div>
-        <div className="nav-links">
-          <NavigationLink name="Home">
-            <FaHome className="icon" />{" "}
-            {/* For managing interior design projects */}
-          </NavigationLink>
-          <NavigationLink name="My Designs">
-            <FaPencilAlt className="icon" />{" "}
-            {/* For creating/viewing designs */}
-          </NavigationLink>
-          <NavigationLink name="Client Requests">
-            <FaInbox className="icon" />{" "}
-            {/* For client requests or inquiries */}
-          </NavigationLink>
-          <NavigationLink name="Favorites">
-            <FaRegHeart className="icon" />{" "}
-            {/* For favorited designs or inspiration */}
-          </NavigationLink>
-          <NavigationLink name="Profile">
-            <FaRegUserCircle className="icon" />{" "}
-            {/* For designer profile settings */}
-          </NavigationLink>
-        </div>
+        <NavigationLink name="Logout">
+          <IoLogOutOutline className="icon" />{" "}
+          {/* For designers to manage their designs */}
+        </NavigationLink>
       </motion.nav>
     </>
   );

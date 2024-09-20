@@ -61,4 +61,35 @@
 .designer-submit-btn:hover {
   background-color: #600f18c3;
 }
+
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px dotted #600f18;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+.upload-icon-wrapper {
+  margin-bottom: 0.5rem;
+}
+
+.upload-text {
+  font-weight: bold;
+  background: var(--gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.upload-file-info {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
 /* -------------------------------------------------------------------------close------------------------------------------------------------------------------- */
