@@ -1,12 +1,14 @@
-import React from 'react'
-import Banner from './components/Banner'
+import React from "react";
+import Banner from "./components/Banner";
+import CartTable from "./components/CartTable";
 
 const Cart = () => {
   return (
-    <div>
-        <Banner />
+    <div style={{ backgroundColor: "var(--gray-100)" }}>
+      <Banner />
+      <CartTable />
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;
