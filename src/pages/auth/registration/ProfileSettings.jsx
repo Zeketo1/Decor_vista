@@ -3,14 +3,18 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone"; // Importing Dropzone
 import uploadIcon from "../../../assets/icons/upload.svg";
 // Designer Profile Setup Component
 const ProfileSetup = () => {
-  const userRole = localStorage.getItem("userRole");
+  const role = localStorage.getItem("userRole");
   const navigate = useNavigate();
-
+  useEffect(() => {
+    if (!role) {
+      console.error("User role not found in localStorage");
+    }
+  }, [role]);
   const [profileImage, setProfileImage] = useState(null); // State for profile image
   const [fileError, setFileError] = useState(""); // State for handling file errors
 
@@ -57,11 +61,11 @@ const ProfileSetup = () => {
         ...values,
         profileImage, // Submit the profile image URL
       });
-      navigate(
-        userRole === "designer"
-          ? "/dashboard/designer-dashboard"
-          : "/dashboard/user-dashboard"
-      );
+      if (role === "designer") {
+        navigate("/dashboard/designer-dashboard");
+      } else {
+        navigate("/dashboard/user-dashboard");
+      }
     },
   });
 
@@ -118,7 +122,7 @@ const ProfileSetup = () => {
           </div>
 
           {/* Portfolio Link */}
-          {userRole === "designer" && (
+          {role === "designer" && (
             <div className="designer-input-group">
               <label>Portfolio Link</label>
               <input
@@ -154,7 +158,7 @@ const ProfileSetup = () => {
           </div>
 
           {/* Years of Experience */}
-          {userRole === "designer" && (
+          {role === "designer" && (
             <div className="designer-input-group">
               <label>Years of Experience</label>
               <input
@@ -175,7 +179,7 @@ const ProfileSetup = () => {
           )}
 
           {/* Specializations */}
-          {userRole === "designer" && (
+          {role === "designer" && (
             <div className="designer-input-group">
               <label>Specializations</label>
               <input
