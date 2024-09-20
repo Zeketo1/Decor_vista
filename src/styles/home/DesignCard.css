@@ -1,0 +1,76 @@
+.design {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+/* Wrapper around the image */
+.design .image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+}
+
+/* Style the images */
+.design .image-wrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Apply the dark overlay */
+.design .image-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(96, 15, 24, .25); /* Adjust the opacity */
+    z-index: 10;
+}
+
+/* Text container styles */
+.design .text-container {
+    display: flex;
+    justify-content: space-between;
+    gap: .5rem;
+    padding: 0 .3rem;
+    text-align: left;
+    margin-top: .8rem;
+}
+
+.design .text-container div {
+    display: flex;
+    color: black;
+    flex-direction: column;
+}
+
+.design .text-container div .title {
+    font-weight: 500;
+}
+
+.design .text-container div .price {
+    color: rgb(95, 93, 93);
+    margin-top: .2rem;
+}
+
+/* Cart icon styles */
+.design .text-container div .cart-icon {
+    background: #8080802e;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cart-icon .i{
+    /* color: #808080d4; */
+}
+
+.cart-icon .i.active {
+    color: #000;
+}

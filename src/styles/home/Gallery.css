@@ -1,0 +1,60 @@
+.gallery-container{
+    padding: var(--padding);
+    text-align: center;
+}
+
+.gallery-container h2{
+    font-size: 35px;
+    margin: .3rem 0;
+}
+
+.gallery-container small{
+    color: gray;
+}
+
+.gallery-1{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    gap: .5rem;
+    margin-top: 2rem;
+}
+
+.gallery-1 img{
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.gallery-2{
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: .5rem;
+    margin-top: .5rem;
+}
+
+/* Add a wrapper for the images */
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    cursor: pointer;
+}
+
+/* Style the images */
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Apply the pseudo-element to the wrapper */
+.image-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(96, 15, 24, .3); /* Adjust the opacity */
+    z-index: 10;
+}

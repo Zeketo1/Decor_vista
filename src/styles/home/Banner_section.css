@@ -1,0 +1,179 @@
+.landing-section{
+    background: #FFFFFF;
+    height: 100vh;
+    padding: var(--padding);
+    position: relative;
+    overflow-y: hidden;
+}
+
+.navbar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 155px;
+}
+
+.nav-links{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links .link{
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+}
+.link.active-link{
+    color: var(--red-100);
+    border-bottom: 2px solid;
+}
+
+.cart-icon{
+    font-size: 21px;
+    margin-left: 1rem;
+}
+
+.landing-section > .text-n-image{
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.text-container h1{
+    font-size: 45px;
+    width: 65%;
+    line-height: 4rem;
+    color: var(--red-200);
+}
+
+.text-container h1 span{
+    color: var(--red-100);
+}
+
+.text-container p{
+    line-height: 2rem;
+    margin: 2rem 0;
+    color: #606060;
+}
+
+.text-container .link{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--red-200);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.image-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.image-container img{
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    position: relative;
+    z-index: 10;
+}
+
+.image-container .numbers{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: 25px;
+    font-weight: 450;
+    justify-content:last baseline;
+}
+
+.number{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+.number .line{
+    width: 35px;
+    height: 3px;
+    background: transparent;
+}
+.number.active{
+    color: var(--red-100);
+}
+.number.active .line{
+    background: var(--red-100);
+}
+.next-btn{
+    display: flex;
+    position: absolute;
+    /* padding: .7rem 2rem; */
+    width: 9rem;
+    height: 3rem;
+    justify-content: space-between;
+    padding: 0 .8rem;
+    align-items: center;
+    background: linear-gradient(180deg, #D26C6A, #600F18);
+    color: #fff;
+    border: none;
+    left: -4.5rem;
+    bottom: 4rem;
+    cursor: pointer;
+    border-radius: 2px;
+    z-index: 30;
+}
+
+.next-icon{
+    font-size: 28px;
+    border-left: 1px solid #fff;
+    width: 50%;
+}
+
+.vector-images img{
+    position: absolute;
+}
+
+.vector1{
+    left: 38%;
+    width: 70px;
+    bottom: 2rem;
+}
+
+.vector2{
+    left: 0;
+    top: 8rem;
+    width: 150px;
+}
+
+.vector3{
+    top: 8rem;
+    left: 53%;
+    width: 60px;
+}
+
+.vector4{
+    top: 0;
+    left: 40%;
+    width: 190px;
+}
+
+.vector6{
+    /* top: 0;
+    left: 40%;
+    width: 190px; */
+    right: 7rem;
+    top: 7rem;
+}
+
+.vector7{
+    bottom: -4rem;
+    right: 0;
+    width: 290px;
+}

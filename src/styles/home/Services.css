@@ -1,0 +1,79 @@
+.services-container{
+    padding: 4rem;
+}
+
+.services-container .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: last baseline;
+}
+
+.services-container .header span{
+    color: var(--red-100);
+    /* font-size: 18px; */
+    font-weight: 500;
+}
+
+.services-container .header div{
+    width: 40%;
+}
+
+.services-container .header div h2{
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.services-container .header p{
+    width: 50%;
+    line-height: 2rem;
+    color: gray;
+}
+
+.services-container .header button{
+    margin-top: .5rem;
+    padding: .8rem 2rem;
+    background: linear-gradient(200deg, #D26C6A, #600F18);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.services{
+    display: flex;
+    margin-top: 3rem;
+    gap: 2rem;
+}
+
+.service{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 1px 3px 0 #00000023, 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.service .icon{
+    background: #d26c6a5b;
+    color: var(--red-100);
+    width: 55px;
+    height: 55px;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+}
+
+.service span{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.service p{
+    color: gray;
+    margin-top: .5rem;
+}
