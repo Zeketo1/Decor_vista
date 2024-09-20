@@ -1,0 +1,52 @@
+.banner__container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-family: var(--ubuntu-font);
+  height: 250px;
+  background: linear-gradient(90deg, #000000b0, #000000b0),
+    url("../../assets/images/pexels-pixabay-276724.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-blend-mode: soft-light;
+  width: 100%;
+  color: black;
+  padding: 0 50px;
+}
+
+.about__us__text {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: var(--red-200);
+}
+
+.about__us__route__text {
+  font-size: 15px;
+  color: var(--red-200);
+}
+
+@media (min-width: 640px) {
+  .banner__container {
+    padding: 0 70px;
+    height: 350px;
+  }
+
+  .about__us__text {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  .banner__container {
+    padding: 0 100px;
+    height: 350px;
+  }
+
+  .about__us__text {
+    font-size: 50px;
+  }
+
+  .about__us__route__text {
+    font-size: 20px;
+  }
+}
