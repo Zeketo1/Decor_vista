@@ -29,13 +29,13 @@
   text-align: left;
 }
 
-h2 {
+.h2 {
   margin-bottom: 10px;
   font-size: 24px;
   color: #fff; /* Adjusted color to fit the gradient */
 }
 
-p {
+.p {
   color: #ccc; /* Adjusted color to fit the gradient */
   margin-bottom: 20px;
 }
