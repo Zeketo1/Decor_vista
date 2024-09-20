@@ -12,7 +12,7 @@ import vector4 from "../../../assets/images/vector4.png"
 import vector5 from "../../../assets/images/vector5.png"
 import vector6 from "../../../assets/images/vector6.png"
 import vector7 from "../../../assets/images/vector7.png"
-import vector8 from "../../../assets/images/vector8.png"
+import logo from "../../../assets/images/logo.svg"
 
 
 const Banner_Section = () => {
@@ -44,11 +44,11 @@ const Banner_Section = () => {
     return (
         <section className='landing-section'>
             <header className='navbar-container'>
-                <span className="logo">Logo...</span>
+                <img src={logo} alt='logo' className='logo'/>
 
                 <nav className="nav-links">
                     {links.map(link => (
-                        <Link to={link.path} className={`link ${link.path == pathname ? "active-link" : ""}`}>{link.title}</Link>
+                        <Link key={link.title} to={link.path} className={`link ${link.path == pathname ? "active-link" : ""}`}>{link.title}</Link>
                     ))}
 
                     <FaCartShopping className='cart-icon'/>

@@ -1,0 +1,69 @@
+.dedication-container{
+    background: #270408;
+    color: white;
+    padding: var(--padding);
+    margin: 2rem 0;
+    display: flex;
+    gap: 6rem;
+    padding: 4rem;
+}
+
+.dedication-container .left-area{
+    width: 50%;
+}
+.dedication-container .left-area h2{
+    font-size: 35px;
+}
+
+.dedication-container .left-area p{
+    color: gray;
+    margin-top: 1rem;
+}
+
+.dedication-container .left-area .rating{
+    display: flex;
+    gap: 6rem;
+    margin-top: 2.5rem;
+}
+
+.dedication-container .left-area .rating .quantity{
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.dedication-container .left-area .rating .quantity .stars{
+    color: #FFC728;
+}
+
+.dedication-container .left-area .rating .quantity span{
+    color: #f1eeee;
+}
+
+.dedication-container .right-area{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.dedication-container .right-area .statement-container{
+    display: flex;
+    gap: 1rem;
+}
+
+.dedication-container .right-area .statement-container .icon{
+    /* color: var(--red-100); */
+    color: #FFC728;
+    font-size: 30px;
+}
+
+.dedication-container .right-area .statement-container .text-area span{
+    font-size: 21px;
+    font-weight: 500;
+}
+
+.dedication-container .right-area .statement-container p{
+    margin-top: .5rem;
+    color: #f1eeee;
+}

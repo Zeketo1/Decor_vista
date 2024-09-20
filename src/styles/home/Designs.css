@@ -1,0 +1,52 @@
+.design-container{
+    padding: var(--padding);
+    text-align: center;
+}
+
+.design-container .heading > span{
+    color: var(--red-100);
+    font-weight: 500;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: last baseline;
+}
+
+.header .text-area{
+    text-align: left;
+}
+
+.header .text-area .heading{
+    width: 70%;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: .5rem;
+}
+
+
+.designs{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    row-gap: 0;
+    margin-top: 2rem;
+}
+
+.header .catergories{
+    display: flex;
+    /* gap: 1rem; */
+    color: gray;
+}
+.category{
+    padding: .3rem .8rem;
+    border: 1.5px solid transparent;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.category.active{
+    color: var(--red-100);
+    border: 1.5px solid;
+}
