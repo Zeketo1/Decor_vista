@@ -31,7 +31,6 @@ const SystemRoutes = () => {
           path="/auth/user-profile-settings"
           element={<UserProfileSetup />}
         />
-        {/* <Route path="/auth/profile-settings" element={<ProfileSettings />} /> */}
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/dashboard/*" element={<DashBoardLayout />}>
           <Route path="user-dashboard" element={<UserDashBoard />} />

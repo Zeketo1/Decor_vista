@@ -4,19 +4,21 @@ import * as Yup from "yup";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useDropzone } from "react-dropzone";
-import uploadIcon from "../../../assets/icons/upload.svg";
+// import { useDropzone } from "react-dropzone";
+// import uploadIcon from "../../../assets/icons/upload.svg";
 import axios from "axios";
 import { BASE_URL } from "../../utils";
 
 // Helper function to convert image to base64
-const toBase64 = (file) =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-  });
+// Helper function to convert image to base64
+// Helper function to convert image to base64
+// const toBase64 = (file) =>
+//   new Promise((resolve, reject) => {
+//     const reader = new FileReader();
+//     reader.readAsDataURL(file); // Read file as Data URL (Base64)
+//     reader.onload = () => resolve(reader.result);
+//     reader.onerror = (error) => reject(error);
+//   });
 
 const DesignerProfileSetup = () => {
   const previousUserValues = JSON.parse(localStorage.getItem("uservalues1"));
@@ -28,32 +30,32 @@ const DesignerProfileSetup = () => {
     }
   }, [navigate, previousUserValues]);
 
-  const [profileImageBase64, setProfileImageBase64] = useState(null);
-  const [fileError, setFileError] = useState("");
+  // const [profileImageBase64, setProfileImageBase64] = useState(null);
+  // const [fileError, setFileError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { getRootProps, getInputProps } = useDropzone({
-    accept: {
-      "image/jpeg": [],
-      "image/png": [],
-      "image/gif": [],
-      "image/svg+xml": [],
-    },
-    onDrop: async (acceptedFiles) => {
-      if (acceptedFiles.length) {
-        try {
-          const base64Image = await toBase64(acceptedFiles[0]);
-          setProfileImageBase64(base64Image);
-          setFileError("");
-        } catch (e) {
-          console.log(e.response?.data || e.message);
-          setFileError("Failed to convert image to base64");
-        }
-      } else {
-        setFileError("Please upload a valid image");
-      }
-    },
-  });
+  // const { getRootProps, getInputProps } = useDropzone({
+  //   accept: {
+  //     "image/jpeg": [],
+  //     "image/png": [],
+  //     "image/gif": [],
+  //     "image/svg+xml": [],
+  //   },
+  //   onDrop: async (acceptedFiles) => {
+  //     if (acceptedFiles.length) {
+  //       try {
+  //         const base64Image = await toBase64(acceptedFiles[0]);
+  //         setProfileImageBase64(base64Image); // Set Base64 Image
+  //         setFileError("");
+  //       } catch (error) {
+  //         console.log(error);
+  //         setFileError("Failed to convert image to base64");
+  //       }
+  //     } else {
+  //       setFileError("Please upload a valid image");
+  //     }
+  //   },
+  // });
 
   const formik = useFormik({
     initialValues: {
@@ -76,12 +78,8 @@ const DesignerProfileSetup = () => {
       address: Yup.string().required("Address is required"),
     }),
     onSubmit: async (values) => {
-      if (!profileImageBase64) {
-        setFileError("Profile image is required");
-        return;
-      }
+      setLoading(true);
 
-      // Structure data as expected by the backend
       const userData = {
         username: previousUserValues.username,
         password: previousUserValues.password,
@@ -91,7 +89,6 @@ const DesignerProfileSetup = () => {
         user_details: {
           contact_number: previousUserValues.contact_number,
           address: values.address,
-          profile_picture: profileImageBase64, // Base64 image
         },
         designer_details: {
           address: values.address,
@@ -102,27 +99,27 @@ const DesignerProfileSetup = () => {
           portfolio: values.portfolioLink,
         },
       };
-
-      setLoading(true);
-
       try {
+        console.log(userData);
         // Send the JSON payload to the backend
-        const response = await axios.post(`${BASE_URL}/auth/users/`, userData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        });
-
-        console.log(response);
-        navigate("/dashboard/designer-dashboard");
-      } catch (e) {
-        console.error(e.response?.data || e.message);
-        setFileError(
-          "An error occurred while saving your profile. Please try again."
+        const response = await axios.post(
+          `${BASE_URL}/auth/users/`,
+          userData, // No need to stringify - Axios does this automatically
+          {
+            headers: {
+              "Content-Type": "application/json", // Send as JSON
+            },
+          }
         );
-      } finally {
-        setLoading(false);
+        console.log(response.data);
+        navigate("/dashboard/designer-dashboard");
+      } catch (error) {
+        console.log("Error:", error.response?.data || error.message);
+        // setFileError(
+        //   "An error occurred while saving your profile. Please try again."
+        // );
       }
+      setLoading(false);
     },
   });
 
@@ -139,7 +136,7 @@ const DesignerProfileSetup = () => {
         <p>Complete your profile to start showcasing your work</p>
 
         <form onSubmit={formik.handleSubmit}>
-          <div {...getRootProps()} className="dropzone">
+          {/* <div {...getRootProps()} className="dropzone">
             <input {...getInputProps()} />
             {profileImageBase64 ? (
               <img
@@ -159,7 +156,7 @@ const DesignerProfileSetup = () => {
               </div>
             )}
           </div>
-          {fileError && <p className="designer-error-message">{fileError}*</p>}
+          {fileError && <p className="designer-error-message">{fileError}*</p>} */}
 
           <div className="designer-input-group">
             <label>Address</label>

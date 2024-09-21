@@ -4,8 +4,8 @@ import * as Yup from "yup";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useDropzone } from "react-dropzone";
-import uploadIcon from "../../../assets/icons/upload.svg";
+// import { useDropzone } from "react-dropzone";
+// import uploadIcon from "../../../assets/icons/upload.svg";
 import axios from "axios";
 import { BASE_URL } from "../../utils";
 
@@ -19,37 +19,37 @@ const UserProfileSetup = () => {
     }
   }, [navigate, previousUserValues]);
 
-  const [profileImageFile, setProfileImageFile] = useState(null); // Store file object
-  const [fileError, setFileError] = useState("");
+  // const [profileImageFile, setProfileImageFile] = useState(null); // Store file object
+  // const [fileError, setFileError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Use React Dropzone for image uploading
-  const { getRootProps, getInputProps } = useDropzone({
-    accept: {
-      "image/jpeg": [],
-      "image/png": [],
-      "image/gif": [],
-      "image/svg+xml": [],
-    },
-    maxSize: 800000, // 800KB limit
-    onDrop: (acceptedFiles) => {
-      if (acceptedFiles.length) {
-        const file = acceptedFiles[0];
+  // // Use React Dropzone for image uploading
+  // const { getRootProps, getInputProps } = useDropzone({
+  //   accept: {
+  //     "image/jpeg": [],
+  //     "image/png": [],
+  //     "image/gif": [],
+  //     "image/svg+xml": [],
+  //   },
+  //   maxSize: 800000, // 800KB limit
+  //   onDrop: (acceptedFiles) => {
+  //     if (acceptedFiles.length) {
+  //       const file = acceptedFiles[0];
 
-        if (file.size > 800000) {
-          // Validate image size
-          setFileError(
-            "Image size exceeds 800KB. Please upload a smaller image."
-          );
-          return;
-        }
-        setProfileImageFile(file); // Store the file object
-        setFileError("");
-      } else {
-        setFileError("Please upload a valid image.");
-      }
-    },
-  });
+  //       if (file.size > 800000) {
+  //         // Validate image size
+  //         setFileError(
+  //           "Image size exceeds 800KB. Please upload a smaller image."
+  //         );
+  //         return;
+  //       }
+  //       setProfileImageFile(file); // Store the file object
+  //       setFileError("");
+  //     } else {
+  //       setFileError("Please upload a valid image.");
+  //     }
+  //   },
+  // });
 
   const formik = useFormik({
     initialValues: {
@@ -75,9 +75,9 @@ const UserProfileSetup = () => {
       formData.append("user_details[address]", values.address);
 
       // Append profile image file if available
-      if (profileImageFile) {
-        formData.append("user_details[profile_picture]", profileImageFile);
-      }
+      // if (profileImageFile) {
+      //   formData.append("user_details[profile_picture]", profileImageFile);
+      // }
 
       // Append designer details if applicable
       formData.append("designer_details[address]", values.address);
@@ -126,7 +126,7 @@ const UserProfileSetup = () => {
         <p>Complete your profile to start using our services</p>
 
         <form onSubmit={formik.handleSubmit}>
-          <div {...getRootProps()} className="dropzone">
+          {/* <div {...getRootProps()} className="dropzone">
             <input {...getInputProps()} />
             {profileImageFile ? (
               <img
@@ -146,7 +146,7 @@ const UserProfileSetup = () => {
               </div>
             )}
           </div>
-          {fileError && <p className="user-error-message">{fileError}*</p>}
+          {fileError && <p className="user-error-message">{fileError}*</p>} */}
 
           <div className="user-input-group">
             <label>Address</label>
