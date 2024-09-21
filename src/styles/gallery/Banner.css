@@ -1,53 +1,53 @@
-.contact__banner__container {
+.gallery__banner__container {
   display: flex;
   justify-content: start;
   align-items: center;
   font-family: var(--ubuntu-font);
   height: 250px;
   background: linear-gradient(90deg, #000000b0, #000000b0),
-    url("../../assets/images/pexels-fotoaibe-1571460.jpg");
-  background-blend-mode: soft-light;
+    url("../../assets/images/gallery/pexels-steve-923192.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
+  background-blend-mode: soft-light;
+  background-position: center;
   width: 100%;
   color: black;
   padding: 0 50px;
+  margin-bottom: 50px;
 }
 
-.contact__us__text {
+.gallery__text {
   font-size: 30px;
   margin-bottom: 10px;
   color: var(--red-200);
 }
 
-.contact__us__route__text {
+.gallery__route__text {
   font-size: 15px;
   color: var(--red-200);
 }
 
 @media (min-width: 640px) {
-  .contact__banner__container {
+  .gallery__banner__container {
     padding: 0 70px;
     height: 350px;
   }
 
-  .contact__us__text {
+  .gallery__text {
     font-size: 40px;
   }
 }
 
 @media (min-width: 768px) {
-  .contact__banner__container {
+  .about__banner__container {
     padding: 0 100px;
     height: 350px;
   }
 
-  .contact__us__text {
+  .gallery__text {
     font-size: 50px;
   }
 
-  .contact__us__route__text {
+  .gallery__route__text {
     font-size: 20px;
   }
 }

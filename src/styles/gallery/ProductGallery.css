@@ -1,0 +1,156 @@
+.grid-container-loading {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  padding: 0 2rem;
+}
+
+.loading-image {
+  background-color: rgba(0, 0, 0, 0.125);
+  width: 100%;
+  height: 20rem;
+  animation: pulse 2s infinite;
+}
+
+.loading-image.row-span-2 {
+  grid-row: span 2;
+  border-radius: 0.5rem;
+  height: 100%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  padding: 0 2rem;
+}
+
+.grid-container.sm {
+  padding: 0 1rem;
+}
+
+.gallery-image {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  position: relative;
+  border-radius: 0.5rem;
+}
+
+.gallery-image.row-span-2 {
+  grid-row: span 2;
+  border-radius: 0.5rem;
+}
+
+.gallery-video {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.image__container {
+  position: relative;
+}
+
+.product__info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+
+.add-to-cart {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  color: white;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.product__info:hover .add-to-cart {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.product__name {
+  transition: all 2.5 ease-in;
+  width: 100%;
+  position: relative;
+}
+
+.product__name > p {
+  transition: all 2.5 ease-in;
+  top: -30px;
+  position: absolute;
+}
+
+.product__price {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: end;
+}
+
+.product__price > p {
+  background-color: var(--red-200);
+  padding: 10px;
+  border-radius: 0 0.5rem 0 20px;
+  color: white;
+  width: fit-content;
+}
+
+.product__name > p {
+  margin-bottom: 5px;
+  font-weight: 400;
+}
+
+.cart__button {
+  width: 100%;
+  font-size: 17px;
+  padding: 10px 0;
+  border-radius: 0 0 0.5rem 0.5rem;
+  border: none;
+  color: white;
+  background-color: #600f18b9;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Media Queries for responsiveness */
+@media (min-width: 768px) {
+  .grid-container-loading,
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-container.md {
+    padding: 0 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-container-loading,
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

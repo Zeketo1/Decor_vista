@@ -3,7 +3,11 @@ import "../../../styles/about/Intro.css";
 import chair from "../../../assets/images/chair.png";
 import blackChair from "../../../assets/images/slide1.png";
 import vase from "../../../assets/images/vase.png";
-import { GiRecycle } from "react-icons/gi";
+import vector3 from "../../../assets/images/vector3.png"
+import vector4 from "../../../assets/images/vector4.png"
+import vector8 from "../../../assets/images/vector8.png"
+import vector6 from "../../../assets/images/vector6.png"
+import vector7 from "../../../assets/images/vector7.png"
 import { motion } from "framer-motion";
 import {
   PiCheckCircleThin,
@@ -18,7 +22,6 @@ const Intro = () => {
     { icon: <PiCheckCircleThin className="icon" />, text: "Quality Products" },
     { icon: <PiMoneyWavyThin className="icon" />, text: "Affordable Luxury" },
     { icon: <PiHeadsetThin className="icon" />, text: "24/7 Support" },
-    // { icon: <GiRecycle className="icon"/>, text: "Sustainable Choices" },
   ];
 
   // Framer-motion things
@@ -56,6 +59,10 @@ const Intro = () => {
 
   return (
     <div className="intro__parnter">
+      <img src={vector4} alt="" className="intro__vector1" />
+      <img src={vector3} alt="" className="intro__vector2" />
+      <img src={vector6} alt="" className="intro__vector3" />
+      <img src={vector8} alt="" className="intro__vector5" />
       <div className="intro__container">
         <div className="intro__text">
           <p className="welcome__text">Welcome to Decovista</p>

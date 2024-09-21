@@ -1,5 +1,36 @@
 .intro__parnter {
   padding: 30px;
+  position: relative;
+}
+
+.intro__vector1 {
+  position: absolute;
+  top: 0;
+}
+
+.intro__vector2 {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .intro__vector2 {
+    display: block;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+  }
+}
+
+.intro__vector3 {
+  position: absolute;
+  bottom: 40%;
+  left: 20%;
+}
+
+.intro__vector5 {
+  position: absolute;
+  top: 10%;
+  right: 0;
 }
 
 .intro__container {
@@ -99,9 +130,6 @@
   }
 
   .intro__parnter {
-    /* display: grid;
-    grid-template-columns: 50% 50%;
-    height: fit-content; */
     padding: 60px;
   }
 }
