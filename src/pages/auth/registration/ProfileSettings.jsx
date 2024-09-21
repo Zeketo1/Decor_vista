@@ -126,7 +126,13 @@ const ProfileSetup = () => {
           {/* Profile Image Upload using Dropzone */}
           <div {...getRootProps()} className="dropzone">
             <input {...getInputProps()} />
-            {!profileImage ? (
+            {profileImage ? (
+              <img
+                src={profileImage}
+                alt="Profile Preview"
+                style={{ width: "100%", height: "100px", objectFit: "contain" }}
+              />
+            ) : (
               <div className="upload-container">
                 <div className="upload-icon-wrapper">
                   <img src={uploadIcon} alt="Upload" width="30" height="30" />
@@ -136,12 +142,6 @@ const ProfileSetup = () => {
                   SVG, PNG, JPG, or GIF (max. 800x400px)
                 </p>
               </div>
-            ) : (
-              <img
-                src={profileImage}
-                alt="Profile Preview"
-                style={{ width: "100%", height: "100px", objectFit: "contain" }}
-              />
             )}
           </div>
           {fileError && <p className="designer-error-message">{fileError}*</p>}
