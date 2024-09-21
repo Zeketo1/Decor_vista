@@ -6,9 +6,12 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone"; // Importing Dropzone
 import uploadIcon from "../../../assets/icons/upload.svg";
+import axios from "axios";
+import { BASE_URL } from "../../utils";
 // Designer Profile Setup Component
 const ProfileSetup = () => {
   const role = localStorage.getItem("userRole");
+  const [user, setUser] = useState({});
   const navigate = useNavigate();
   useEffect(() => {
     if (!role) {
@@ -52,15 +55,54 @@ const ProfileSetup = () => {
       ),
       address: Yup.string().required("Address is required"),
     }),
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       if (!profileImage) {
         setFileError("Profile image is required");
         return;
       }
-      console.log("Profile Setup Submitted:", {
-        ...values,
-        profileImage, // Submit the profile image URL
-      });
+      const previousUserValues = JSON.parse(
+        localStorage.getItem("uservalues1")
+      );
+      // const currentUser = {
+      //   ...values,
+      //   profileImage,
+      //   ...previousUserValues,
+      // };
+
+      const userToSubmit = {
+        username: previousUserValues.username,
+        password: previousUserValues.password,
+        re_password: previousUserValues.password,
+        email: previousUserValues.email,
+        role: previousUserValues.role,
+        user_details: {
+          contact_number: previousUserValues.contact_number,
+          address: values.address,
+        },
+        designer_details: {
+          years_of_experience: values.years_of_experience,
+          specializations: values.specializations,
+          portfolio: values.portfolioLink,
+        },
+      };
+
+      console.log(userToSubmit);
+
+      try {
+        const response = await axios.post(
+          `${BASE_URL}/auth/users/`,
+          userToSubmit,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log(response.data);
+      } catch (e) {
+        console.log(e.message);
+      }
+
       if (role === "designer") {
         navigate("/dashboard/designer-dashboard");
       } else {

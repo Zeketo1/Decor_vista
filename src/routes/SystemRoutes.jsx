@@ -6,6 +6,8 @@ import { SignUp, Login, DesignerProfileSetup } from "../pages/auth/exports";
 import DesignerDashboard from "../pages/dashboard/DesignerDashBoard";
 import UserDashBoard from "../pages/dashboard/UserDashBoard";
 import DashBoardLayout from "../pages/dashboard/components/DashBoardLayout";
+import ClientRequestsPage from "../pages/dashboard/pages/ClientRequestPage";
+// import ClientRequestsPage from "../";
 const SystemRoutes = () => {
   return (
     <BrowserRouter>
@@ -22,6 +24,10 @@ const SystemRoutes = () => {
         <Route path="/dashboard/*" element={<DashBoardLayout />}>
           <Route path="user-dashboard" element={<UserDashBoard />} />
           <Route path="designer-dashboard" element={<DesignerDashboard />} />
+          <Route
+            path="designer-dashboard/client-requests"
+            element={<ClientRequestsPage />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

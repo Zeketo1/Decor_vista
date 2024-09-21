@@ -93,7 +93,7 @@ const Navigation = () => {
 
           {/* Dynamic Navigation Links */}
           <div className="nav-links">
-            <NavigationLink name="Home">
+            <NavigationLink path={"/dashboard/designer-dashboard"} name="Home">
               <FaHome className="icon" />
             </NavigationLink>
 
@@ -103,7 +103,10 @@ const Navigation = () => {
                   <FaPencilAlt className="icon" />{" "}
                   {/* For designers to manage their designs */}
                 </NavigationLink>
-                <NavigationLink name="Client Requests">
+                <NavigationLink
+                  path={"/dashboard/designer-dashboard/client-requests"}
+                  name="Client Requests"
+                >
                   <FaInbox className="icon" /> {/* For client requests */}
                 </NavigationLink>
               </>

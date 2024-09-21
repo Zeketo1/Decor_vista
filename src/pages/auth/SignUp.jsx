@@ -57,20 +57,7 @@ const SignUp = () => {
     validationSchema,
     onSubmit: async (values) => {
       setIsLoading(true);
-      try {
-        const response = await axios.post(BASE_URL + "/users", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(values),
-        });
-        const data = await response.json();
-        console.log(data);
-      } catch (e) {
-        console.log(e.message);
-      }
-      setIsLoading(false);
+      localStorage.setItem("uservalues1", JSON.stringify(values));
       // Set the user role based on the formData.role value
       const userRole = values.role === "designer" ? "designer" : "user";
 
@@ -84,6 +71,7 @@ const SignUp = () => {
       } else {
         navigate("/auth/login?role=user");
       }
+      setIsLoading(false);
     },
   });
 

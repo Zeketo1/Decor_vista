@@ -8,6 +8,7 @@ const VideoPlayer = ({ src, className }) => {
       if (videoRef.current) {
         try {
           await videoRef.current.play();
+          // await videoRef.current.pl
         } catch (e) {
           console.error("Error playing video:", e.message);
         }
