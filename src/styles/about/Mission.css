@@ -6,7 +6,52 @@
   padding: 30px 30px;
 }
 
+.mission__text__container {
+  position: relative;
+}
+
+.mission__vector1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mission__vector3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.mission__vector2 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.vision__text__container {
+  position: relative;
+}
+
+.vision__vector1 {
+  position: absolute;
+  bottom: 0;
+  right: 20%;
+}
+
+.vision__vector2 {
+  position: absolute;
+  right: 0;
+  top: 10%;
+}
+
+.vision__vector3 {
+  position: absolute;
+  left: 0;
+  top: -10%;
+}
+
 .mission__container {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

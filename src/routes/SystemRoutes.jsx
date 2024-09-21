@@ -10,6 +10,8 @@ import ClientRequestsPage from "../pages/dashboard/pages/ClientRequestPage";
 import { Login, SignUp } from "../pages/auth/exports";
 import DesignerProfileSetup from "../pages/auth/registration/designer-profile-settings";
 import UserProfileSetup from "../pages/auth/registration/user-profile-setting";
+// import { ProfileSettings } from "../pages/auth/exports";
+import Gallery from "../pages/gallery/Gallery";
 
 const SystemRoutes = () => {
   return (
@@ -29,6 +31,8 @@ const SystemRoutes = () => {
           path="/auth/user-profile-settings"
           element={<UserProfileSetup />}
         />
+        {/* <Route path="/auth/profile-settings" element={<ProfileSettings />} /> */}
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/dashboard/*" element={<DashBoardLayout />}>
           <Route path="user-dashboard" element={<UserDashBoard />} />
           <Route path="designer-dashboard" element={<DesignerDashboard />} />

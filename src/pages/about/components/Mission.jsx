@@ -3,12 +3,20 @@ import "../../../styles/about/Mission.css";
 import mission from "../../../assets/images/mission.jpg";
 import vision from "../../../assets/images/vision.jpg";
 import { motion } from "framer-motion";
+import vector3 from "../../../assets/images/vector3.png";
+import vector1 from "../../../assets/images/vector1.png";
+import vector5 from "../../../assets/images/vector5.png";
+import vector6 from "../../../assets/images/vector6.png";
+import vector8 from "../../../assets/images/vector8.png";
 
 const Mission = () => {
   return (
     <div className="mission__vision__container">
       <div className="mission__container">
-        <div>
+        <img src={vector1} alt="" className="mission__vector1" />
+        <img src={vector5} alt="" className="mission__vector3" />
+        <div className="mission__text__container">
+          <img src={vector3} alt="" className="mission__vector2" />
           <h2>Our Mission</h2>
           <p>
             At Decovista, our mission is to transform spaces by offering <br />
@@ -41,7 +49,10 @@ const Mission = () => {
           alt=""
           className="mission__vision__image image1"
         />
-        <div>
+        <img src={vector5} alt="" className="vision__vector1" />
+        <img src={vector6} alt="" className="vision__vector2" />
+        <div className="vision__text__container">
+        <img src={vector3} alt="" className="vision__vector3" />
           <h2>Our Vision</h2>
           <p>
             Our vision is to become a global leader in home furnishing, known

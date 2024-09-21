@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../styles/cart/Banner.css";
+import "../../../styles/gallery/Banner.css";
 import { motion } from "framer-motion";
 
 const Banner = () => {
@@ -14,23 +14,23 @@ const Banner = () => {
 
   return (
     <>
-      <div className="cart__banner__container">
+      <div className="gallery__banner__container">
         <div>
           <motion.h1
             variants={container(-300, 0.8)}
             initial="hidden"
             animate="visible"
-            className="cart__text"
+            className="gallery__text"
           >
-            Cart
+            Gallery
           </motion.h1>
           <motion.p
             variants={container(-300, 1)}
             initial="hidden"
             animate="visible"
-            className="cart__route__text"
+            className="gallery__route__text"
           >
-            Home / Cart
+            Home / Gallery
           </motion.p>
         </div>
       </div>

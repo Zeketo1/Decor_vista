@@ -127,7 +127,7 @@ const CartTable = () => {
             <div className="coupon__container__total">
               <div>
                 <p className="coupon__text__total">Total</p>
-                <p className="total__price">$4,900</p>
+                <p className="total__price">{`$${4900 + 30}`}</p>
               </div>
             </div>
             <div className="check__out__btn_container">
