@@ -11,7 +11,6 @@ import { BASE_URL } from "../../utils";
 // Designer Profile Setup Component
 const ProfileSetup = () => {
   const role = localStorage.getItem("userRole");
-  const [user, setUser] = useState({});
   const navigate = useNavigate();
   useEffect(() => {
     if (!role) {
