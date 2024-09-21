@@ -42,9 +42,10 @@ const ProductGallery = () => {
                     animate={{ opacity: 1, top: 0 }}
                     src={item.image}
                     className="gallery-image"
-                    alt=""
+                    alt=" "
                   />
                   <div className="product__info">
+
                     <div className="product__price">
                       <p>{item.price}</p>
                     </div>
