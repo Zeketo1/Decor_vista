@@ -9,15 +9,28 @@ import { Link, useNavigate } from "react-router-dom";
 import VideoPlayer from "./utils/VideoPlayer";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiLoaderAlt } from "react-icons/bi";
 
 const Login = () => {
   const navigate = useNavigate();
   const getUserRole = localStorage.getItem("userRole");
   const [isLoading, setIsLoading] = useState(false);
+  const existing_user = JSON.parse(localStorage.getItem("uservalues1"));
 
-  // Formik form management and Yup validation schema
+  // Handle redirection if userRole is missing
+  useEffect(() => {
+    if (!getUserRole) {
+      navigate("/auth/sign-up");
+    }
+  }, [getUserRole, navigate]);
+
+  // Access existing_user properties
+  const email = existing_user?.email;
+  const password = existing_user?.password;
+  const role = existing_user?.role;
+
+  // Formik for form management and validation
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -31,17 +44,23 @@ const Login = () => {
     }),
     onSubmit: (values) => {
       setIsLoading(true);
-      console.log("Form Submitted:", values);
-      const userRole = getUserRole;
-      setIsLoading(false);
-      // Navigate based on the role stored in localStorage
-      if (userRole === "designer") {
-        navigate("/auth/profile-settings?role=designer");
-      } else if (userRole === "user") {
-        navigate("/auth/profile-settings?role=user");
-      } else {
-        console.log("Unknown role");
-      }
+
+      // 5 seconds delay before navigating
+      setTimeout(() => {
+        if (
+          values.email === email &&
+          values.password === password &&
+          role === "designer"
+        ) {
+          navigate("/auth/designer-profile-settings?role=designer");
+        } else if (role !== "designer") {
+          navigate("/auth/user-profile-settings?role=user");
+        } else {
+          alert("An error occurred, please try logging in again");
+        }
+
+        setIsLoading(false);
+      }, 5000); // 5 seconds delay
     },
   });
 

@@ -58,7 +58,7 @@
   display: flex;
   align-items: center;
   padding: 8px 12px;
-  background-color: var(--red-100);
+  background-color: var(--red-200);
   color: var(--white);
   font-size: 0.85rem;
   border: none;
@@ -69,6 +69,24 @@
 
 .new-request-btn:hover {
   background-color: var(--red-200);
+}
+
+.requests-section {
+  position: relative;
+  height: 38rem;
+  overflow-y: scroll;
+}
+
+.requests-section::-webkit-scrollbar {
+  display: none;
+}
+
+.fade_bottom {
+  position: fixed;
+  height: 10rem;
+  width: 100%;
+  background: linear-gradient(to top, white, transparent);
+  bottom: 0;
 }
 
 .requests-table {
@@ -114,7 +132,7 @@
 .view-btn {
   display: flex;
   align-items: center;
-  background-color: var(--red-100);
+  background-color: var(--red-200);
   color: var(--white);
   padding: 6px 10px;
   font-size: 0.8rem;
@@ -130,6 +148,41 @@
 
 .view-btn .eye-icon {
   margin-right: 5px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.accept-btn,
+.decline-btn {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.accept-btn {
+  background-color: var(--red-200);
+  color: var(--white);
+  border: none;
+}
+
+.accept-btn:hover {
+  background-color: var(--red-100);
+}
+
+.decline-btn {
+  background-color: #f44336;
+  color: var(--white);
+  border: none;
+}
+
+.decline-btn:hover {
+  background-color: #e53935;
 }
 
 .mobile-cards {

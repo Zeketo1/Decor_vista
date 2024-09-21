@@ -209,10 +209,10 @@
   gap: 0.75rem;
 }
 
-.icon {
+.navigation-link .route-icon {
+  color: #fff8f8;
   stroke-width: 0.75;
-  min-width: 2rem;
-  width: 2rem;
+  min-width: 1rem;
 }
 
 .project-indicator {
@@ -223,15 +223,14 @@
 }
 .navigation-link {
   display: flex;
-  padding: 0.5rem;
+  padding: 0.6rem;
   border-radius: 0.25rem;
   cursor: pointer;
   stroke-width: 0.75;
   text-decoration: none;
   color: #9ca3af;
   transition: color 0.1s ease, stroke 0.1s ease, background-color 0.1s ease;
-  align-items: center;
-
+  /* align-items: center; */
   gap: 0.75rem;
 }
 
@@ -246,7 +245,7 @@
   white-space: nowrap;
   letter-spacing: 0.05em;
   position: relative;
-  top: 0.5rem;
+  /* top: 0.5rem; */
 }
 
 .outlet {

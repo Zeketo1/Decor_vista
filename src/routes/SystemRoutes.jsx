@@ -7,7 +7,9 @@ import DesignerDashboard from "../pages/dashboard/DesignerDashBoard";
 import UserDashBoard from "../pages/dashboard/UserDashBoard";
 import DashBoardLayout from "../pages/dashboard/components/DashBoardLayout";
 import ClientRequestsPage from "../pages/dashboard/pages/ClientRequestPage";
-import { Login, ProfileSettings, SignUp } from "../pages/auth/exports";
+import { Login, SignUp } from "../pages/auth/exports";
+import DesignerProfileSetup from "../pages/auth/registration/designer-profile-settings";
+import UserProfileSetup from "../pages/auth/registration/user-profile-setting";
 
 const SystemRoutes = () => {
   return (
@@ -19,7 +21,14 @@ const SystemRoutes = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/auth/sign-up" element={<SignUp />} />
         <Route path="/auth/login" element={<Login />} />
-        <Route path="/auth/profile-settings" element={<ProfileSettings />} />
+        <Route
+          path="/auth/designer-profile-settings"
+          element={<DesignerProfileSetup />}
+        />
+        <Route
+          path="/auth/user-profile-settings"
+          element={<UserProfileSetup />}
+        />
         <Route path="/dashboard/*" element={<DashBoardLayout />}>
           <Route path="user-dashboard" element={<UserDashBoard />} />
           <Route path="designer-dashboard" element={<DesignerDashboard />} />

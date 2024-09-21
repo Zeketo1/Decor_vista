@@ -94,6 +94,9 @@
   opacity: 0.9;
 }
 
+.signup-link  {
+  color: white;
+}
 .signup-link a {
   color: var(--red-100);
   text-decoration: none;

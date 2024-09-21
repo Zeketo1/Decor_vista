@@ -4,36 +4,57 @@ import * as Yup from "yup";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useDropzone } from "react-dropzone"; // Importing Dropzone
+import { useDropzone } from "react-dropzone";
 import uploadIcon from "../../../assets/icons/upload.svg";
 import axios from "axios";
 import { BASE_URL } from "../../utils";
-// Designer Profile Setup Component
-const ProfileSetup = () => {
-  const role = localStorage.getItem("userRole");
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!role) {
-      console.error("User role not found in localStorage");
-    }
-  }, [role]);
-  const [profileImage, setProfileImage] = useState(null); // State for profile image
-  const [fileError, setFileError] = useState(""); // State for handling file errors
 
-  // Handling file drop
+// Helper function to convert image to base64
+const toBase64 = (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
+
+const DesignerProfileSetup = () => {
+  const previousUserValues = JSON.parse(localStorage.getItem("uservalues1"));
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!previousUserValues) {
+      navigate("/auth/sign-up");
+    }
+  }, [navigate, previousUserValues]);
+
+  const [profileImageBase64, setProfileImageBase64] = useState(null);
+  const [fileError, setFileError] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const { getRootProps, getInputProps } = useDropzone({
-    accept: { "image/*": [] },
-    onDrop: (acceptedFiles) => {
+    accept: {
+      "image/jpeg": [],
+      "image/png": [],
+      "image/gif": [],
+      "image/svg+xml": [],
+    },
+    onDrop: async (acceptedFiles) => {
       if (acceptedFiles.length) {
-        setProfileImage(URL.createObjectURL(acceptedFiles[0]));
-        setFileError(""); // Clear any file error
+        try {
+          const base64Image = await toBase64(acceptedFiles[0]);
+          setProfileImageBase64(base64Image);
+          setFileError("");
+        } catch (e) {
+          console.log(e.response?.data || e.message);
+          setFileError("Failed to convert image to base64");
+        }
       } else {
         setFileError("Please upload a valid image");
       }
     },
   });
 
-  // Formik for form handling and validation using Yup
   const formik = useFormik({
     initialValues: {
       portfolioLink: "",
@@ -55,20 +76,13 @@ const ProfileSetup = () => {
       address: Yup.string().required("Address is required"),
     }),
     onSubmit: async (values) => {
-      if (!profileImage) {
+      if (!profileImageBase64) {
         setFileError("Profile image is required");
         return;
       }
-      const previousUserValues = JSON.parse(
-        localStorage.getItem("uservalues1")
-      );
-      // const currentUser = {
-      //   ...values,
-      //   profileImage,
-      //   ...previousUserValues,
-      // };
 
-      const userToSubmit = {
+      // Structure data as expected by the backend
+      const userData = {
         username: previousUserValues.username,
         password: previousUserValues.password,
         re_password: previousUserValues.password,
@@ -77,35 +91,37 @@ const ProfileSetup = () => {
         user_details: {
           contact_number: previousUserValues.contact_number,
           address: values.address,
+          profile_picture: profileImageBase64, // Base64 image
         },
         designer_details: {
+          address: values.address,
+          bio: values.bio,
+          contact_number: previousUserValues.contact_number,
           years_of_experience: values.years_of_experience,
           specializations: values.specializations,
           portfolio: values.portfolioLink,
         },
       };
 
-      console.log(userToSubmit);
+      setLoading(true);
 
       try {
-        const response = await axios.post(
-          `${BASE_URL}/auth/users/`,
-          userToSubmit,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        console.log(response.data);
-      } catch (e) {
-        console.log(e.message);
-      }
+        // Send the JSON payload to the backend
+        const response = await axios.post(`${BASE_URL}/auth/users/`, userData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
 
-      if (role === "designer") {
+        console.log(response);
         navigate("/dashboard/designer-dashboard");
-      } else {
-        navigate("/dashboard/user-dashboard");
+      } catch (e) {
+        console.error(e.response?.data || e.message);
+        setFileError(
+          "An error occurred while saving your profile. Please try again."
+        );
+      } finally {
+        setLoading(false);
       }
     },
   });
@@ -123,12 +139,11 @@ const ProfileSetup = () => {
         <p>Complete your profile to start showcasing your work</p>
 
         <form onSubmit={formik.handleSubmit}>
-          {/* Profile Image Upload using Dropzone */}
           <div {...getRootProps()} className="dropzone">
             <input {...getInputProps()} />
-            {profileImage ? (
+            {profileImageBase64 ? (
               <img
-                src={profileImage}
+                src={profileImageBase64}
                 alt="Profile Preview"
                 style={{ width: "100%", height: "100px", objectFit: "contain" }}
               />
@@ -146,7 +161,6 @@ const ProfileSetup = () => {
           </div>
           {fileError && <p className="designer-error-message">{fileError}*</p>}
 
-          {/* Address */}
           <div className="designer-input-group">
             <label>Address</label>
             <input
@@ -162,27 +176,23 @@ const ProfileSetup = () => {
             )}
           </div>
 
-          {/* Portfolio Link */}
-          {role === "designer" && (
-            <div className="designer-input-group">
-              <label>Portfolio Link</label>
-              <input
-                name="portfolioLink"
-                type="url"
-                value={formik.values.portfolioLink}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                placeholder="https://your-portfolio.com"
-              />
-              {formik.touched.portfolioLink && formik.errors.portfolioLink && (
-                <p className="designer-error-message">
-                  {formik.errors.portfolioLink}*
-                </p>
-              )}
-            </div>
-          )}
+          <div className="designer-input-group">
+            <label>Portfolio Link</label>
+            <input
+              name="portfolioLink"
+              type="url"
+              value={formik.values.portfolioLink}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              placeholder="https://your-portfolio.com"
+            />
+            {formik.touched.portfolioLink && formik.errors.portfolioLink && (
+              <p className="designer-error-message">
+                {formik.errors.portfolioLink}*
+              </p>
+            )}
+          </div>
 
-          {/* Bio */}
           <div className="designer-input-group">
             <label>Bio (max 500 characters)</label>
             <textarea
@@ -198,45 +208,43 @@ const ProfileSetup = () => {
             )}
           </div>
 
-          {/* Years of Experience */}
-          {role === "designer" && (
-            <div className="designer-input-group">
-              <label>Years of Experience</label>
-              <input
-                name="years_of_experience"
-                type="text"
-                value={formik.values.years_of_experience}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                placeholder="2 years experience"
-              />
-              {formik.touched.years_of_experience &&
-                formik.errors.years_of_experience && (
-                  <p className="designer-error-message">
-                    {formik.errors.years_of_experience}*
-                  </p>
-                )}
-            </div>
-          )}
+          <div className="designer-input-group">
+            <label>Years of Experience</label>
+            <input
+              name="years_of_experience"
+              type="text"
+              value={formik.values.years_of_experience}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              placeholder="2 years experience"
+            />
+            {formik.touched.years_of_experience &&
+              formik.errors.years_of_experience && (
+                <p className="designer-error-message">
+                  {formik.errors.years_of_experience}*
+                </p>
+              )}
+          </div>
 
-          {/* Specializations */}
-          {role === "designer" && (
-            <div className="designer-input-group">
-              <label>Specializations</label>
-              <input
-                name="specializations"
-                type="text"
-                value={formik.values.specializations}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                placeholder="e.g., Interior Design, Architecture"
-              />
-            </div>
-          )}
+          <div className="designer-input-group">
+            <label>Specializations</label>
+            <input
+              name="specializations"
+              type="text"
+              value={formik.values.specializations}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              placeholder="e.g., Interior Design, Architecture"
+            />
+          </div>
 
           <div className="designer-submit-region">
-            <button type="submit" className="designer-submit-btn">
-              Save Profile
+            <button
+              type="submit"
+              className="designer-submit-btn"
+              disabled={loading}
+            >
+              {loading ? "Saving..." : "Save Profile"}
             </button>
           </div>
         </form>
@@ -245,4 +253,4 @@ const ProfileSetup = () => {
   );
 };
 
-export default ProfileSetup;
+export default DesignerProfileSetup;

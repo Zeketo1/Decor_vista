@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "../../../styles/dashboard/ClientRequestsPage.css";
-import { FiSearch, FiPlus, FiEye } from "react-icons/fi";
+import { FiSearch, FiEye } from "react-icons/fi";
+import { additionalRequests } from "../../utils";
 
 const ClientRequestsPage = () => {
+  const [search, setSearch] = useState("");
   const [requests, setRequests] = useState([
     {
       id: 1,
@@ -18,15 +20,16 @@ const ClientRequestsPage = () => {
       requestType: "Furniture Setup",
       status: "In Progress",
     },
-    {
-      id: 3,
-      clientName: "Jane Smith",
-      requestDate: "2024-09-19",
-      requestType: "Furniture Setup",
-      status: "In Progress",
-    },
+    ...additionalRequests,
   ]);
   const [selectedRequest, setSelectedRequest] = useState(null);
+
+  // Search functionality, case insensitive search
+  const filteredRequests = requests.filter(
+    (request) =>
+      request.clientName.toLowerCase().includes(search.toLowerCase()) ||
+      request.requestType.toLowerCase().includes(search.toLowerCase())
+  );
 
   const handleViewDetails = (request) => {
     setSelectedRequest(request);
@@ -36,6 +39,20 @@ const ClientRequestsPage = () => {
     setSelectedRequest(null);
   };
 
+  const handleDecline = (id) => {
+    setRequests(requests.filter((request) => request.id !== id));
+    handleCloseModal();
+  };
+
+  const handleAccept = (id) => {
+    setRequests(
+      requests.map((request) =>
+        request.id === id ? { ...request, status: "In Progress" } : request
+      )
+    );
+    handleCloseModal();
+  };
+
   return (
     <div className="client-requests-page">
       <header className="page-header">
@@ -43,15 +60,19 @@ const ClientRequestsPage = () => {
         <div className="header-actions">
           <div className="search-bar">
             <FiSearch className="search-icon" />
-            <input type="text" placeholder="Search requests..." />
+            <input
+              type="text"
+              placeholder="Search requests..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
           </div>
-          <button className="new-request-btn">
-            <FiPlus className="plus-icon" /> New Request
-          </button>
         </div>
       </header>
 
       <section className="requests-section">
+        <div className="fade_bottom"></div>
+        {/* Table view for desktop */}
         <table className="requests-table">
           <thead>
             <tr>
@@ -63,7 +84,7 @@ const ClientRequestsPage = () => {
             </tr>
           </thead>
           <tbody>
-            {requests.map((request) => (
+            {filteredRequests.map((request) => (
               <tr key={request.id}>
                 <td>{request.clientName}</td>
                 <td>{request.requestDate}</td>
@@ -92,7 +113,7 @@ const ClientRequestsPage = () => {
 
         {/* Mobile View - Cards */}
         <div className="mobile-cards">
-          {requests.map((request) => (
+          {filteredRequests.map((request) => (
             <div key={request.id} className="request-card">
               <div className="card-header">
                 <h3>{request.clientName}</h3>
@@ -140,6 +161,20 @@ const ClientRequestsPage = () => {
               <p>
                 <strong>Status:</strong> {selectedRequest.status}
               </p>
+            </div>
+            <div className="modal-footer">
+              <button
+                className="decline-btn"
+                onClick={() => handleDecline(selectedRequest.id)}
+              >
+                Decline
+              </button>
+              <button
+                className="accept-btn"
+                onClick={() => handleAccept(selectedRequest.id)}
+              >
+                Accept
+              </button>
             </div>
           </div>
         </div>

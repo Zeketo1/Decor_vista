@@ -11,35 +11,23 @@ import VideoPlayer from "./utils/VideoPlayer";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { BASE_URL } from "../utils";
-import axios from "axios";
 import { useState } from "react";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [userParam, setUserParam] = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
+
   // Define validation schema using Yup
   const validationSchema = Yup.object({
-    // Optional username
     username: Yup.string(),
-    // Required first name (modified)
     first_name: Yup.string().required("First name is required"),
-    // Required last name (modified)
     last_name: Yup.string().required("Last name is required"),
-    // Required email with email format check
-    email: Yup.string()
-      .email("Invalid email format")
-      .required("Email is required"),
-    // Required contact number with validation for international number format
+    email: Yup.string().email("Invalid email format").required("Email is required"),
     contact_number: Yup.string()
       .required("Contact number is required")
       .matches(/^\+?\d{10,}$/, "Invalid contact number format"),
-    // Required password with minimum length check
-    password: Yup.string()
-      .min(6, "Password must be at least 6 characters")
-      .required("Password is required"),
-    // Required role selection (user/designer)
+    password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
     role: Yup.string().required("Role is required"),
   });
 
@@ -57,21 +45,24 @@ const SignUp = () => {
     validationSchema,
     onSubmit: async (values) => {
       setIsLoading(true);
-      localStorage.setItem("uservalues1", JSON.stringify(values));
-      // Set the user role based on the formData.role value
-      const userRole = values.role === "designer" ? "designer" : "user";
 
-      // Set user parameters in localStorage and navigate
-      setUserParam({ role: userRole });
-      localStorage.setItem("userRole", userRole);
+      // Simulate a delay of 5 seconds before navigating
+      setTimeout(() => {
+        localStorage.setItem("uservalues1", JSON.stringify(values));
 
-      // Navigate to the login page with the user role as a query parameter
-      if (userRole === "designer") {
-        navigate("/auth/login?role=designer");
-      } else {
-        navigate("/auth/login?role=user");
-      }
-      setIsLoading(false);
+        const userRole = values.role === "designer" ? "designer" : "user";
+        setUserParam({ role: userRole });
+        localStorage.setItem("userRole", userRole);
+
+        // Navigate to the login page after the 5 seconds loading time
+        if (userRole === "designer") {
+          navigate("/auth/login?role=designer");
+        } else {
+          navigate("/auth/login?role=user");
+        }
+
+        setIsLoading(false);
+      }, 5000); // 5-second delay
     },
   });
 

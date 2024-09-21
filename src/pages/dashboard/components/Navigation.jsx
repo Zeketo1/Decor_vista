@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa"; // Importing icons from Font Awesome
 import NavigationLink from "./NavigationLinks";
 import { IoLogOutOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const containerVariants = {
   close: {
@@ -43,7 +44,7 @@ const Navigation = () => {
   const containerControls = useAnimationControls();
   const svgControls = useAnimationControls();
   const userRole = localStorage.getItem("userRole"); // Retrieve user role from local storage
-
+  const navigate = useNavigate();
   useEffect(() => {
     if (isOpen) {
       containerControls.start("open");
@@ -55,6 +56,7 @@ const Navigation = () => {
   }, [isOpen, containerControls, svgControls]);
 
   const handleOpenClose = () => setIsOpen(!isOpen);
+  const logout = () => navigate("/auth/login");
 
   return (
     <>
@@ -94,32 +96,32 @@ const Navigation = () => {
           {/* Dynamic Navigation Links */}
           <div className="navigation-links">
             <NavigationLink path={"/dashboard/designer-dashboard"} name="Home">
-              <FaHome className="icon" />
+              <FaHome className="route-icon" />
             </NavigationLink>
 
             {userRole === "designer" && (
               <>
                 <NavigationLink name="My Designs">
-                  <FaPencilAlt className="icon" />{" "}
+                  <FaPencilAlt className="route-icon" />{" "}
                   {/* For designers to manage their designs */}
                 </NavigationLink>
                 <NavigationLink
                   path={"/dashboard/designer-dashboard/client-requests"}
                   name="Client Requests"
                 >
-                  <FaInbox className="icon" /> {/* For client requests */}
+                  <FaInbox className="route-icon" /> {/* For client requests */}
                 </NavigationLink>
               </>
             )}
 
             <NavigationLink name="Profile">
-              <FaRegUserCircle className="icon" />{" "}
+              <FaRegUserCircle className="route-icon" />{" "}
               {/* User or designer profile settings */}
             </NavigationLink>
           </div>
         </div>
-        <NavigationLink name="Logout">
-          <IoLogOutOutline className="icon" />{" "}
+        <NavigationLink path={"/auth/login"} onClick={logout} name="Logout">
+          <IoLogOutOutline className="route-icon" />{" "}
           {/* For designers to manage their designs */}
         </NavigationLink>
       </motion.nav>
