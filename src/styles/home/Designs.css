@@ -50,3 +50,34 @@
     color: var(--red-100);
     border: 1.5px solid;
 }
+
+@media (max-width: 820px) {
+
+    .design-container{
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .header .text-area .heading{
+       display: none;
+    }
+
+    .header{
+        align-items: center;
+    }
+
+    .designs{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 420px) {
+
+    .header{
+        flex-direction: column;
+    }
+
+    .designs{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

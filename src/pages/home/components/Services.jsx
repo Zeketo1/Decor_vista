@@ -1,5 +1,4 @@
 import React from 'react'
-import { FaCouch, FaLightbulb, FaPaintBrush } from 'react-icons/fa';
 import "../../../styles/home/Services.css";
 import { LuLayoutDashboard } from 'react-icons/lu';
 import { PiSwatches } from 'react-icons/pi';

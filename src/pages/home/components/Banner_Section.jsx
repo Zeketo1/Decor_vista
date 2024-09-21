@@ -1,6 +1,4 @@
-import React from 'react'
-import { FaCartShopping } from 'react-icons/fa6';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import "../../../styles/home/Home.css";
 import image_1 from "../../../assets/images/image_1.png";
 import { MdKeyboardDoubleArrowRight } from 'react-icons/md';
@@ -12,49 +10,14 @@ import vector4 from "../../../assets/images/vector4.png"
 import vector5 from "../../../assets/images/vector5.png"
 import vector6 from "../../../assets/images/vector6.png"
 import vector7 from "../../../assets/images/vector7.png"
-import logo from "../../../assets/images/logo.svg"
+import Navbar from './Navbar';
 
 
 const Banner_Section = () => {
 
-    const {pathname} = useLocation();
-
-    const links = [
-        {
-            title: "Home",
-            path: "/",
-        },
-
-        {
-            title: "About Us",
-            path: "/about",
-        },
-        
-        {
-            title: "Gallery",
-            path: "/gallery",
-        },
-
-        {
-            title: "Contact Us",
-            path: "/contact",
-        }
-    ];
-
     return (
         <section className='landing-section'>
-            <header className='navbar-container'>
-                <img src={logo} alt='logo' className='logo'/>
-
-                <nav className="nav-links">
-                    {links.map(link => (
-                        <Link key={link.title} to={link.path} className={`link ${link.path == pathname ? "active-link" : ""}`}>{link.title}</Link>
-                    ))}
-
-                    <FaCartShopping className='cart-icon'/>
-                </nav>
-            </header>
-
+           <Navbar/>
             <div className="text-n-image">
                 <div className="text-container">
                     <h1>Simplicity <span>is the</span> ultimate <span>sophistication</span></h1>

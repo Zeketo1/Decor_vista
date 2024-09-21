@@ -1,0 +1,76 @@
+.overview-container{
+    width: 100%;
+}
+.top-area{
+    height: 30vh;
+    width: 100%;
+    background: url("../../../assets/images/image_21.jpg");
+    background-size: cover;
+    background-position: center 65%;
+    position: relative;
+    background-repeat: no-repeat;
+}
+.top-area::before{
+    content: "";
+    background: #600f1873;
+    background: linear-gradient(45deg, #4f0911e5, #2e050aac);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.top-area .text-contents{
+    position: relative;
+    z-index: 20;
+    color: white;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: last baseline;
+}
+
+.text-contents .details-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.text-contents .details-container p{
+    color: rgb(245, 237, 237)
+}
+
+.text-contents .details-container .balance{
+    font-size: 21px;
+    font-weight: bold;
+    /* color: var(--red-100); */
+    margin-top: 1rem;
+}
+
+.text-contents .details-container .balance span{
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.text-contents .buttons{
+    display: flex;
+    gap: .6rem;
+}
+
+.text-contents .buttons button{
+    display: flex;
+    align-items: center;
+    padding: .8rem 2rem;
+    border-radius: 7px;
+    border: none;
+    gap: .5rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.buttons .fund{
+    background: var(--red-200);
+    color: #fff;
+}
+
+.buttons .withd{
+    color: var(--red-200);
+}
