@@ -202,7 +202,7 @@
   stroke: #fff;
 }
 
-.nav-links,
+.navigation-links,
 .project-links {
   display: flex;
   flex-direction: column;
@@ -223,7 +223,7 @@
 }
 .navigation-link {
   display: flex;
-  padding: 0.25rem;
+  padding: 0.5rem;
   border-radius: 0.25rem;
   cursor: pointer;
   stroke-width: 0.75;
@@ -231,6 +231,7 @@
   color: #9ca3af;
   transition: color 0.1s ease, stroke 0.1s ease, background-color 0.1s ease;
   align-items: center;
+
   gap: 0.75rem;
 }
 

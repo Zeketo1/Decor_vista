@@ -92,7 +92,7 @@ const Navigation = () => {
           </div>
 
           {/* Dynamic Navigation Links */}
-          <div className="nav-links">
+          <div className="navigation-links">
             <NavigationLink path={"/dashboard/designer-dashboard"} name="Home">
               <FaHome className="icon" />
             </NavigationLink>

@@ -1,0 +1,135 @@
+.intro__parnter {
+  padding: 30px;
+}
+
+.intro__container {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr;
+  height: fit-content;
+  margin-bottom: 20px;
+}
+
+.welcome__text {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.success__header {
+  color: var(--red-200);
+  font-size: 25px;
+  font-family: var(--ubuntu-font);
+  margin-bottom: 20px;
+}
+
+.success__message {
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+.qoute__container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.qoute__line {
+  height: 50px;
+  width: 2px;
+  background: var(--red-200);
+}
+
+.intro__text {
+  background: #e5e5e53e;
+  z-index: 5;
+}
+
+.intro {
+  position: absolute;
+  overflow: hidden;
+  z-index: 4;
+}
+
+.intro__services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.intro__services__header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.why__header {
+  font-size: 30px;
+  font-family: var(--ubuntu-font);
+  color: var(--red-200);
+}
+
+.why__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  gap: 10px;
+}
+
+.why__container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  font-size: 35px;
+  color: var(--red-200);
+}
+
+@media (min-width: 768px) {
+  .success__header {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .intro__parnter {
+    /* display: grid;
+    grid-template-columns: 50% 50%;
+    height: fit-content; */
+    padding: 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .intro__parnter {
+    padding: 60px;
+  }
+
+  .intro__container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: fit-content;
+  }
+
+  .intro__text {
+    box-shadow: none;
+  }
+
+  .intro {
+    display: block;
+    justify-self: end;
+    align-self: center;
+  }
+}
+
+@media (min-width: 1280px) {
+  .intro__parnter {
+    padding: 100px;
+  }
+}

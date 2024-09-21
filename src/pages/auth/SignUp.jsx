@@ -83,8 +83,8 @@ const SignUp = () => {
           animate={{ y: 0, opacity: 1 }}
           className="form-wrapper"
         >
-          <h2>Welcome to Decor Vista</h2>
-          <p>Create a decor vista account to continue</p>
+          <h2 className="h2">Welcome to Decor Vista</h2>
+          <p className="p">Create a decor vista account to continue</p>
           <form onSubmit={formik.handleSubmit}>
             {formik.errors.general && (
               <p className="error-message">{formik.errors.general}*</p>
