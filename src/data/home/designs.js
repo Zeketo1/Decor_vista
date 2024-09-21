@@ -103,3 +103,48 @@ export const designs = [
         designer: 'Ava Scott'
     }
 ];
+
+export const appointments = [
+    {
+        designer: "John Doe",
+        design_name: "Modern Living Room",
+        date: "22/09/2024",
+        time: "14:00",
+        title: "Living Room Decor Consultation",
+        price: 300
+    },
+    {
+        designer: "Jane Smith",
+        design_name: "Minimalist Bedroom",
+        date: "23/09/2024",
+        time: "10:30",
+        title: "Bedroom Design Consultation",
+        price: 250
+    },
+    {
+        designer: "Alice Brown",
+        design_name: "Scandinavian Kitchen",
+        date: "24/09/2024",
+        time: "16:00",
+        title: "Kitchen Decor Planning",
+        price: 400
+    },
+    {
+        designer: "Michael Green",
+        design_name: "Vintage Dining Room",
+        date: "25/09/2024",
+        time: "11:00",
+        title: "Dining Room Redesign",
+        price: 350
+    },
+    {
+        designer: "Sophia White",
+        design_name: "Industrial Office Space",
+        date: "26/09/2024",
+        time: "09:30",
+        title: "Office Space Decor Consultation",
+        price: 450
+    }
+];
+
+

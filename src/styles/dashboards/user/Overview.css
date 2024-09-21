@@ -1,0 +1,144 @@
+.overview-container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* color: black !important; */
+    /* padding: 1rem 1rem; */
+    padding: 1rem;
+    gap: 2rem;
+}
+
+.designs-container{
+    /* border: 1.5px solid var(--red-200); */
+    /* padding: 1rem; */
+    /* border-radius: 12px; */
+    height: 65vh;
+    overflow-y: scroll;    
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+}
+
+.designs-container::-webkit-scrollbar {
+    display: none;
+}
+
+.designs-container .sub-heading{
+    font-size: 21px;
+    font-weight: 500;
+}
+
+.overview-container .designs-container .designns{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 1rem;
+    column-gap: 1rem;
+}
+
+.overview-container .designs-container .designns .design{
+    background: rgba(128, 128, 128, 0.059);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.overview-container .designs-container .designns .design img{
+    width: 100%;
+    height: 12rem;
+}
+
+.details{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem  1rem;
+    align-items: center;
+}
+
+.designer{
+    display: flex;
+    gap: .3rem;
+    align-items: center;
+    width: 50%;
+}
+
+.designer-image{
+    width: 25px;
+    height: 25px;
+    background: var(--red-200);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 23px;
+}
+
+/* Activities */
+.activities-container{
+    /* border: 1.5px solid var(--red-200); */
+    height: 65vh;
+    /* border-radius: 12px; */
+}
+
+.activities-container .sub-heading{
+    font-size: 21px;
+    font-weight: 500;
+}
+
+.appointments{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.appointments .appointment-container{
+    display: flex;
+    justify-content: space-between;
+    background: #d26c6a18;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.appointment-container .name-n-price{
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.name-n-price .image-container{
+    width: 35px;
+    height: 35px;
+    background: var(--red-200);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 23px;
+}
+
+.name-n-price .name-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.name-n-price .name-container .name{
+    font-weight: 500;
+}
+
+.name-n-price .name-container .price{
+    color: gray;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+}
+
+.appointment-container .title-n-date{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    width: 50%;
+}
+
+.appointment-container .title-n-date .title{
+    font-weight: 500;
+}

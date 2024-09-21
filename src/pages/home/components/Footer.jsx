@@ -29,8 +29,8 @@ const Footer = () => {
                     <h1>LOGO</h1>
                     <p>Crafting Timeless Interiors That Combine Functionality, Comfort, and Aesthetic Appeal.</p>
                     <div className="socials">
-                        {socials.map(Social => (
-                            <Link to="#" className='icon-container'>
+                        {socials.map((Social, index) => (
+                            <Link key={index} to="#" className='icon-container'>
                                 <Social className='icon'/>
                             </Link>
                         ))}
@@ -38,12 +38,12 @@ const Footer = () => {
                 </div>
 
                 {quickLinks.map(link => (
-                    <div className="links-container">
+                    <div className="links-container" key={link.title}>
                         <span>{link.title}</span>
 
                         <div className="links">
-                            {link.links.map(lin => (
-                                <Link to="#" className='link'>{lin}</Link>
+                            {link.links.map((lin, index)=> (
+                                <Link key={index} to="#" className='link'>{lin}</Link>
                             ))}
                         </div>
                     </div>

@@ -51,3 +51,20 @@
     border: 2px solid;
     cursor: pointer;
 }
+
+@media (max-width: 820px){
+    .banner-container{
+        height: 35vh;
+        margin: 0 2rem;
+    }   
+
+    .banner-container div{
+        text-align: center;
+        display: flex;
+        gap: .5rem;
+    }
+
+    .banner-container div p{
+        font-size: 24px;
+    }
+}

@@ -8,6 +8,12 @@
     padding: 4rem;
 }
 
+@media (max-width: 820px) {
+    .dedication-container{
+        padding: 3rem 2rem;  
+    }  
+}
+
 .dedication-container .left-area{
     width: 50%;
 }
@@ -66,4 +72,20 @@
 .dedication-container .right-area .statement-container p{
     margin-top: .5rem;
     color: #f1eeee;
+}
+
+
+@media (max-width: 420px) {
+    .dedication-container{
+        flex-wrap: wrap;
+        padding: 2rem 1rem;
+    }  
+
+    .dedication-container .left-area{
+        width: 100%;
+    }
+
+    .dedication-container .right-area{
+        width: 100%;
+    }
 }
