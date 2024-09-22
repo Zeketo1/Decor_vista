@@ -117,7 +117,7 @@ const CartTable = () => {
           <div className="check__out">
             <div ref={ref} className="coupon__container">
               <div className="coupon__text__container">
-                <p>Coupon Code</p>
+                <p>User Code</p>
                 <RiArrowDropDownLine
                   onClick={handleClick}
                   className="dropdown__icon"

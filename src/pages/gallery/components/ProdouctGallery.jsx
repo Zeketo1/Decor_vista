@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import "../../../styles/gallery/ProductGallery.css";
 import { gallery } from "../../../data/gallery/gallery";
 import { GalleryContext } from "../../../context/gallery/GalleryProvider";
@@ -22,7 +21,6 @@ const ProductGallery = () => {
   };
 
   console.log(galleryDatas);
-  
 
   return (
     <div className="gallery__container">
@@ -46,14 +44,7 @@ const ProductGallery = () => {
                 i % 2 === 0 ? "gallery-image row-span-2" : "gallery-image"
               }`}
             >
-              <motion.img
-                transition={{ duration: 0.5 }}
-                initial={{ opacity: 0, top: 60 }}
-                animate={{ opacity: 1, top: 0 }}
-                src={item.image}
-                className="gallery-image"
-                alt={item.name}
-              />
+              <img src={item.image} className="gallery-image" alt={item.name} />
               <div className="product__info">
                 <div className="product__price">
                   <p>{item.price}</p>
