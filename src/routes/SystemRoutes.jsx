@@ -7,7 +7,7 @@ import DesignerProfileSetup from "../pages/auth/registration/designer-profile-se
 import UserProfileSetup from "../pages/auth/registration/user-profile-setting";
 import Gallery from "../pages/gallery/Gallery";
 import UserDashboard from "../pages/dashboards/user/UserDashboard";
-import Contact from "../pages/contactus/Contact";
+import Contact from "../pages/contact-us/Contact.jsx";
 import DashBoardLayout from "../pages/dashboards/components/DashBoardLayout";
 import ClientRequestsPage from "../pages/dashboards/designer/pages/ClientRequestPage";
 import DesignerDashboard from "../pages/dashboards/designer/DesignerDashBoard";
