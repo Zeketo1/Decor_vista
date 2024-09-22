@@ -1,4 +1,4 @@
-import "../../../styles/auth/profile-set-up.css";
+import "../../../styles/auth/Profile-set-up.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { motion } from "framer-motion";

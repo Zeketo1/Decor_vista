@@ -1,4 +1,4 @@
-import "../../styles/auth/Auth.css";
+import "../../styles/auth/auth.css";
 import image1 from "../../assets/images/pexels-fotoaibe-1571453.jpg";
 import image2 from "../../assets/images/pexels-fotoaibe-1571460.jpg";
 import video3 from "../../assets/videos/3444429-hd_1920_1080_30fps.mp4";
