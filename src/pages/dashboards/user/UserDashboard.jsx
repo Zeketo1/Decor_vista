@@ -3,9 +3,10 @@ import "../../../styles/dashboards/user/Overview.css";
 import { IoTimeOutline } from "react-icons/io5";
 import TopMenu from "../components/TopMenu";
 const UserDashboard = () => {
+  const user = JSON.parse(localStorage.getItem("userData"));
   return (
     <div className="main-container">
-      <TopMenu />
+      <TopMenu user={user} />
       <div className="overview-container">
         <div className="designs-container">
           <p className="sub-heading">~ Favorite Designs</p>

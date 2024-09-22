@@ -23,11 +23,15 @@ const SignUp = () => {
     username: Yup.string(),
     first_name: Yup.string().required("First name is required"),
     last_name: Yup.string().required("Last name is required"),
-    email: Yup.string().email("Invalid email format").required("Email is required"),
+    email: Yup.string()
+      .email("Invalid email format")
+      .required("Email is required"),
     contact_number: Yup.string()
       .required("Contact number is required")
       .matches(/^\+?\d{10,}$/, "Invalid contact number format"),
-    password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters")
+      .required("Password is required"),
     role: Yup.string().required("Role is required"),
   });
 
@@ -56,9 +60,9 @@ const SignUp = () => {
 
         // Navigate to the login page after the 5 seconds loading time
         if (userRole === "designer") {
-          navigate("/auth/login?role=designer");
+          navigate("/auth/designer-profile-settings?role=designer");
         } else {
-          navigate("/auth/login?role=user");
+          navigate("/auth/user-profile-settings?role=user");
         }
 
         setIsLoading(false);
@@ -113,13 +117,12 @@ const SignUp = () => {
               ) : null}
             </div>
 
-            {/* Username input - now optional */}
             <div className="input-group">
               <FaUser className="input-group-icon" />
               <input
                 type="text"
                 name="username"
-                placeholder="Username (optional)"
+                placeholder="Username"
                 value={formik.values.username}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}

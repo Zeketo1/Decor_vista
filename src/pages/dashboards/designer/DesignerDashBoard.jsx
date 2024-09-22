@@ -9,6 +9,7 @@ import ProjectGallery from "../components/ProjectGallery";
 import { Link } from "react-router-dom";
 
 const DesignerDashboard = () => {
+  const designer = JSON.parse(localStorage.getItem("userData"));
   return (
     <div className="dashboard-container">
       {/* Main Dashboard Content */}
@@ -17,12 +18,12 @@ const DesignerDashboard = () => {
           <div className="dashboard-balance">
             <div className="balance-text">
               <h1>
-                Welcome{" "}
+                Welcome-
                 <motion.span
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1, transition: { delay: 1 } }}
                 >
-                  Dubby Bantin
+                   { designer.username}
                 </motion.span>{" "}
               </h1>
               <p>Today&apos;s stats</p>
@@ -31,7 +32,12 @@ const DesignerDashboard = () => {
             <div className="actions">
               <button className="btn view-projects">View Projects</button>
               <button className="btn view-reviews">View Reviews</button>
-              <Link to={"/dashboard/designer-dashboard/client-requests"} className="btn view-requests">View Requests</Link>
+              <Link
+                to={"/dashboard/designer-dashboard/client-requests"}
+                className="btn view-requests"
+              >
+                View Requests
+              </Link>
             </div>
           </div>
         </section>

@@ -16,9 +16,10 @@ const Login = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const existing_user = JSON.parse(localStorage.getItem("uservalues1"));
+  const designer = JSON.parse(localStorage.getItem("userData"));
 
   // Access existing_user properties
-  const email = existing_user?.email;
+  // const email = existing_user?.email;
   const password = existing_user?.password;
   const role = existing_user?.role;
 
@@ -40,13 +41,13 @@ const Login = () => {
       // 5 seconds delay before navigating
       setTimeout(() => {
         if (
-          values.email === email &&
+          values.email === designer.email &&
           values.password === password &&
           role === "designer"
         ) {
-          navigate("/auth/designer-profile-settings?role=designer");
+          navigate("/dashboard/designer-dashboard");
         } else if (role !== "designer") {
-          navigate("/auth/user-profile-settings?role=user");
+          navigate("/dashboard/user-dashboard");
         } else {
           alert("An error occurred, please try logging in again");
         }
@@ -64,7 +65,7 @@ const Login = () => {
           animate={{ y: 0, opacity: 1 }}
           className="form-wrapper"
         >
-          <h2 className="h2">Welcome Back</h2>
+          <h2 className="h2">Welcome Back {designer?.username}</h2>
           <p className="p">Sign in to your account to continue</p>
           <form onSubmit={formik.handleSubmit}>
             {formik.errors.email && formik.touched.email && (
