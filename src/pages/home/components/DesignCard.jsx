@@ -12,7 +12,7 @@ const DesignCard = ({ title, price, designer, inCart, image }) => {
       <div className="text-container">
         <div className="">
           <span className='title'>{title}</span>
-          <span className='price'>&#x20A6;{price.toLocaleString()}</span>
+          <span className='price'>${price.toLocaleString()}</span>
         </div>
 
         <div className="">
