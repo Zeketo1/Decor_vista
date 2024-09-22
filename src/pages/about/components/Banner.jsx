@@ -1,4 +1,3 @@
-import React from "react";
 import "../../../styles/about/Banner.css";
 import { motion } from "framer-motion";
 
@@ -11,13 +10,13 @@ const Banner = () => {
       transition: { duration: 0.5, delay: delay },
     },
   });
-  
+
   return (
-    <>
+    <div className="about">
       <div className="about__banner__container">
         <div>
           <motion.h1
-            variants={container(-300, .8)}
+            variants={container(-300, 0.8)}
             initial="hidden"
             animate="visible"
             className="about__us__text"
@@ -34,7 +33,7 @@ const Banner = () => {
           </motion.p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

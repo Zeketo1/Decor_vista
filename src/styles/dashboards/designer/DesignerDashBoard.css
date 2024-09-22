@@ -11,7 +11,7 @@
 
 .dashboard-banner {
   background: linear-gradient(90deg, #600f18d9, #d26c6ab0),
-    url("../../assets/images/pexels-fotoaibe-1643384.jpg") no-repeat center;
+    url("../../../assets/images/pexels-fotoaibe-1643384.jpg") no-repeat center;
   background-size: cover;
   color: white;
   padding: 3rem;
@@ -49,6 +49,7 @@
   border-radius: 4px;
   font-size: 1rem;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .actions .btn:hover {
@@ -164,7 +165,7 @@
 }
 
 .navigation {
-  z-index: 10;
+  z-index: 100;
   position: absolute;
   padding: 1.25rem;
   background-color: var(--red-200);
@@ -209,6 +210,11 @@
   gap: 0.75rem;
 }
 
+.navigation-links2 {
+  position: relative;
+  top: 5rem;
+}
+
 .navigation-link .route-icon {
   color: #fff8f8;
   stroke-width: 0.75;
@@ -232,9 +238,11 @@
   transition: color 0.1s ease, stroke 0.1s ease, background-color 0.1s ease;
   /* align-items: center; */
   gap: 0.75rem;
+  margin-bottom: 1rem;
 }
 
-.navigation-link:hover {
+.navigation-link:hover,
+.navigation-link.active {
   stroke: #f5f5f5;
   color: #f5f5f5;
   background-color: var(--red-100);

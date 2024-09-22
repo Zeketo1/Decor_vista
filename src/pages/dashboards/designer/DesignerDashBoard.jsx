@@ -1,14 +1,12 @@
-// import { SlLike } from "react-icons/sl";
-import "../../styles/dashboard/UsersDashBoard.css";
+import "../../../styles/dashboards/designer/DesignerDashBoard.css";
 import { MdOutlineDesignServices } from "react-icons/md";
-// import { FiBriefcase, FiFilePlus, FiMessageSquare } from "react-icons/fi";
 import { AiFillStar } from "react-icons/ai";
 import { BsCollection } from "react-icons/bs";
 import { motion } from "framer-motion";
-// import vector1 from "../../assets/images/Ellipse 2.png";
-import vector2 from "../../assets/images/Ellipse 3.png";
-import vector3 from "../../assets/images/Vector.png";
-import ProjectGallery from "./components/ProjectGallery";
+import vector2 from "../../../assets/images/Ellipse 3.png";
+import vector3 from "../../../assets/images/Vector.png";
+import ProjectGallery from "../components/ProjectGallery";
+import { Link } from "react-router-dom";
 
 const DesignerDashboard = () => {
   return (
@@ -33,7 +31,7 @@ const DesignerDashboard = () => {
             <div className="actions">
               <button className="btn view-projects">View Projects</button>
               <button className="btn view-reviews">View Reviews</button>
-              <button className="btn view-requests">View Requests</button>
+              <Link to={"/dashboard/designer-dashboard/client-requests"} className="btn view-requests">View Requests</Link>
             </div>
           </div>
         </section>

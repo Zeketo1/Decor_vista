@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "../../../styles/dashboard/ClientRequestsPage.css";
+import "../../../../styles/dashboards/designer/ClientRequestsPage.css";
 import { FiSearch, FiEye } from "react-icons/fi";
-import { additionalRequests } from "../../utils";
+import { additionalRequests } from "../../../utils";
 
 const ClientRequestsPage = () => {
   const [search, setSearch] = useState("");

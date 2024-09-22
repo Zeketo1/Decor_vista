@@ -1,166 +1,165 @@
 .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
 }
 
 .navbar-container.active {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background: #fff;
-    padding: 1.3rem 2rem;
-    z-index: 100;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    animation: fadeDown 0.3s ease-in-out;
-    color: gray;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #fff;
+  padding: 1.3rem 2rem;
+  z-index: 100;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeDown 0.3s ease-in-out;
+  color: gray;
 }
 
 @keyframes fadeDown {
-    0% {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.logo {
-    color: var(--red-100);
-    font-size: 21px;
+.main_logo {
+  overflow: hidden;
+  height: 25px;
 }
 
 .nav-links {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
 }
 
 .nav-links .link {
-    color: #000;
-    text-decoration: none;
-    font-weight: 500;
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
 }
 
 .link.active-link {
-    color: var(--red-100);
-    border-bottom: 2px solid;
+  color: var(--red-100);
+  border-bottom: 2px solid;
 }
 
 .cart-icon {
-    font-size: 21px;
-    margin-left: 1rem;
+  font-size: 21px;
+  margin-left: 1rem;
 }
 
 .navbar-container .menu-icon {
-    font-size: 18px;
-    display: none;
-    color: white;
+  font-size: 18px;
+  display: none;
+  color: white;
 }
 
 /* Mobile View */
 @media (max-width: 820px) {
-    .navbar-container .menu-icon {
-        display: block;
-    }
+  .navbar-container .menu-icon {
+    display: block;
+  }
 
-    .nav-links {
-        position: absolute;
-        top: 4rem;
-        left: 0;
-        background: var(--red-200);
-        flex-direction: column;
-        width: 100%;
-        height: 94vh;
-        padding-top: 4rem;
-        z-index: 200;
-        display: none;
-    }
+  .nav-links {
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    background: var(--red-200);
+    flex-direction: column;
+    width: 100%;
+    height: 94vh;
+    padding-top: 4rem;
+    z-index: 200;
+    display: none;
+  }
 
-    .navbar-container.active .menu-icon{
-        color: black;
-    }
+  .navbar-container.active .menu-icon {
+    color: black;
+  }
 
-    .nav-links.show {
-        display: flex;
-    }
+  .nav-links.show {
+    display: flex;
+  }
 
-    .nav-links .link {
-        color: rgb(246, 219, 219);
-        width: 100%;
-        text-align: center;
-        padding-bottom: 1.5rem;
-    }
-    
-    .link.active-link {
-        color: white;
-        border-bottom: 1.3px solid #d4aeae;
-    }
+  .nav-links .link {
+    color: rgb(246, 219, 219);
+    width: 100%;
+    text-align: center;
+    padding-bottom: 1.5rem;
+  }
 
-    .cart-icon {
-        display: none;
-    }
+  .link.active-link {
+    color: white;
+    border-bottom: 1.3px solid #d4aeae;
+  }
 
-    .hidden{
-        display: none;
-    }
-    
+  .cart-icon {
+    display: none;
+  }
+
+  .hidden {
+    display: none;
+  }
 }
 
-
 @media (max-width: 920px) {
-    .animateNavbar {
-        display: flex;
-        animation-name: fadeIn;
-        animation-duration: 0.3s;
-        transform: translateY(0);
-    }
+  .animateNavbar {
+    display: flex;
+    animation-name: fadeIn;
+    animation-duration: 0.3s;
+    transform: translateY(0);
+  }
 
-    .unAnimate {
-        display: none;
-        animation-name: fadeOut;
-        animation-duration: 0.3s;
-        transform: translateY(-100vh);
-    }
+  .unAnimate {
+    display: none;
+    animation-name: fadeOut;
+    animation-duration: 0.3s;
+    transform: translateY(-100vh);
+  }
 }
 
 @media (max-width: 640px) {
-    .animateNavbar {
-        display: flex;
-        animation-name: fadeIn;
-        animation-duration: 0.3s;
-        transform: translateY(0);
-        left: 0;
-        flex-direction: column;
-        top: 0;
-        height: 100vh;
-    }
+  .animateNavbar {
+    display: flex;
+    animation-name: fadeIn;
+    animation-duration: 0.3s;
+    transform: translateY(0);
+    left: 0;
+    flex-direction: column;
+    top: 0;
+    height: 100vh;
+  }
 
-    .unAnimate {
-        display: none;
-        animation-name: fadeOut;
-        animation-duration: 0.3s;
-        transform: translateY(-100vh);
-    }
+  .unAnimate {
+    display: none;
+    animation-name: fadeOut;
+    animation-duration: 0.3s;
+    transform: translateY(-100vh);
+  }
 }
 
 @keyframes fadeIn {
-    from {
-        transform: translateY(-50px);
-    }
-    to {
-        transform: translateY(0);
-    }
+  from {
+    transform: translateY(-50px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeOut {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-100vh);
-    }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100vh);
+  }
 }

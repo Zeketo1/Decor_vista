@@ -1,4 +1,3 @@
-import React from "react";
 import "../../../styles/contact/ContactForm.css";
 import { CiClock2, CiLocationOn, CiMail } from "react-icons/ci";
 import { PiPhoneThin } from "react-icons/pi";
