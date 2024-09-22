@@ -81,6 +81,7 @@ const GalleryProvider = ({ children }) => {
   return (
     <GalleryContext.Provider
       value={{
+        removeFromCart,
         galleryDatas,
         setGalleryDatas,
         addToCart,

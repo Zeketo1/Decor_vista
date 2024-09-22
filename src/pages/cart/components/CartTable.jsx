@@ -6,9 +6,11 @@ import { FiMinus } from "react-icons/fi";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
 import { GalleryContext } from "../../../context/gallery/GalleryProvider";
+import { Link } from "react-router-dom";
 
 const CartTable = () => {
   const {
+    removeFromCart,
     galleryDatas,
     addToCart,
     reduceProductQuantity,
@@ -61,7 +63,7 @@ const CartTable = () => {
         <div className="empty__cart">
           <PiBagThin className="empty__cart__icon" />
           <p className="empty__cart__text">Your cart is currently empty</p>
-          <p className="empty__cart__link">RETURN TO SHOP</p>
+          <Link to="/gallery" className="empty__cart__link">RETURN TO SHOP</Link>
         </div>
       ) : (
         <div className="cart">
@@ -80,7 +82,10 @@ const CartTable = () => {
                 );
                 return (
                   <div key={i} className="cart__table__row">
-                    <RxCross1 className="x__1" />
+                    <RxCross1
+                      className="x__1"
+                      onClick={() => removeFromCart(product.id)}
+                    />
                     <img
                       src={product.image}
                       alt={product.name}
@@ -92,7 +97,10 @@ const CartTable = () => {
                           <p className="product__name">{product.name}</p>
                           <p className="quantity__price">{`${product.quantity} x $${product.price}`}</p>
                         </div>
-                        <RxCross1 className="x__2" />
+                        <RxCross1
+                          className="x__2"
+                          onClick={() => removeFromCart(product.id)}
+                        />
                       </div>
                       <div className="quantity__manager__final__price">
                         <div className="quantity__manager">

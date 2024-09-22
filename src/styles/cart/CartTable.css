@@ -25,6 +25,8 @@
 }
 
 .empty__cart__link {
+  text-decoration: none;
+  color: black;
   margin-top: 20px;
   padding: 20px 40px;
   border: 1px solid gray;

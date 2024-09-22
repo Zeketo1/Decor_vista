@@ -12,9 +12,12 @@ import DashBoardLayout from "../pages/dashboards/components/DashBoardLayout";
 import ClientRequestsPage from "../pages/dashboards/designer/pages/ClientRequestPage";
 import DesignerDashboard from "../pages/dashboards/designer/DesignerDashBoard";
 import GalleryProvider from "../context/gallery/GalleryProvider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const SystemRoutes = () => (
   <GalleryProvider>
     <BrowserRouter>
+    <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
