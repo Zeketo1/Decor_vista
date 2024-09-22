@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+.red__line {
+  border: 1px red solid;
+}
+
 .empty__cart {
   display: flex;
   flex-direction: column;
@@ -305,6 +309,17 @@ input[type="radio"] {
 }
 
 .check__out__btn {
+  border: none;
+  background: var(--red-100);
+  color: white;
+  padding: 20px 40px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.check__out__btn__loader {
+  display: flex;
+  justify-content: center;
   border: none;
   background: var(--red-100);
   color: white;
