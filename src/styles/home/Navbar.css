@@ -54,6 +54,7 @@
 .cart-icon {
   font-size: 21px;
   margin-left: 1rem;
+  color: var(--red-200);
 }
 
 .navbar-container .menu-icon {

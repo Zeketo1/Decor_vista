@@ -9,21 +9,13 @@ import { Link, useNavigate } from "react-router-dom";
 import VideoPlayer from "./utils/VideoPlayer";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BiLoaderAlt } from "react-icons/bi";
 
 const Login = () => {
   const navigate = useNavigate();
-  const getUserRole = localStorage.getItem("userRole");
   const [isLoading, setIsLoading] = useState(false);
   const existing_user = JSON.parse(localStorage.getItem("uservalues1"));
-
-  // Handle redirection if userRole is missing
-  useEffect(() => {
-    if (!getUserRole) {
-      navigate("/auth/sign-up");
-    }
-  }, [getUserRole, navigate]);
 
   // Access existing_user properties
   const email = existing_user?.email;

@@ -81,7 +81,9 @@ const Navbar = () => {
           </Link>
         ))}
 
-        <FaCartShopping className="cart-icon" />
+        <Link to={"/cart"} className="cart-icon">
+          <FaCartShopping />
+        </Link>
         <Button text={"Sign Up"} link={"/auth/sign-up"} />
         <Button text={"Login"} link={"/auth/login"} />
       </nav>
