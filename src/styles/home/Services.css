@@ -77,3 +77,40 @@
     color: gray;
     margin-top: .5rem;
 }
+
+@media (max-width: 820px) {
+    .services-container{
+        padding: 2rem;
+    }
+    .services-container .header{
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .services-container .header div{
+        width: 70%;
+    }
+    
+    .services-container .header div h2{
+        font-size: 25px;
+        margin-top: .5rem;
+    }
+    
+    .services-container .header p{
+        display: none;
+    }
+
+    .services{
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+        gap: 2rem;
+    }
+
+    .service{
+        align-items: center;
+        text-align: center;
+        box-shadow: 0 1px 3px 0 #00000023, 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        padding: 2rem 1.5rem ;
+    }
+}

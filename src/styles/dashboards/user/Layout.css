@@ -1,0 +1,13 @@
+.user-layout{
+    height: 100vh;
+    overflow-y: hidden;
+    display: flex;
+}
+
+.overview-container{
+    width: 100%;
+}
+
+.main-container{
+    width: 100%;
+}

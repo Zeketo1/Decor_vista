@@ -1,4 +1,4 @@
-import "../../../styles/dashboard/UsersDashBoard.css";
+import "../../../styles/dashboards/designer/DesignerDashBoard.css";
 import project1 from "../../../assets/images/pexels-fotoaibe-1571453.jpg";
 import project2 from "../../../assets/images/pexels-isaw-company-66472-945688.jpg";
 import project3 from "../../../assets/images/pexels-fotoaibe-1643383.jpg";
@@ -12,23 +12,25 @@ const projects = [
 
 const ProjectGallery = () => {
   return (
-    <section className="project-gallery">
-      <h2 className="gallery-title">Your Projects</h2>
-      <div className="gallery-grid">
-        {projects.map((project) => (
-          <div className="gallery-item" key={project.id}>
-            <img
-              src={project.img}
-              alt={project.title}
-              className="gallery-img"
-            />
-            <div className="gallery-info">
-              <h3>{project.title}</h3>
+    <>
+      <section className="project-gallery">
+        <h2 className="gallery-title">Your Projects</h2>
+        <div className="gallery-grid">
+          {projects.map((project) => (
+            <div className="gallery-item" key={project.id}>
+              <img
+                src={project.img}
+                alt={project.title}
+                className="gallery-img"
+              />
+              <div className="gallery-info">
+                <h3>{project.title}</h3>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+    </>
   );
 };
 

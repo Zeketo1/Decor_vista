@@ -1,0 +1,12 @@
+.button_ {
+  background: linear-gradient(160deg, #d26c6a, #600f18);
+  border: none;
+  padding: .5rem 2rem;
+  border-radius: 25px;
+  color: white;
+  /* margin-right: -1rem; */
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: .8em;
+  text-decoration: none;
+}

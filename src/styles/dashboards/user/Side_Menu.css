@@ -1,0 +1,45 @@
+.side-menu-container{
+    background: var(--red-200);
+    min-width: 18vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+.side-menu-container > .logo{
+    color: White;
+    font-weight: bold;
+}
+
+.side-menu-container > .side-menu-items{
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.side-menu-container > .side-menu-items .menu-item{
+    display: flex;
+    align-items: center;
+    color: #f3d7d7;
+    gap: .8rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+.side-menu-container > .side-menu-items .menu-item.active{
+    color: white;
+    font-weight: 500;
+}
+
+.side-menu-container .sign-out{
+    position: absolute;
+    bottom: 4rem;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    cursor: pointer;
+    color: #f3d7d7;
+}
