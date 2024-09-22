@@ -1,7 +1,5 @@
-import "../../styles/home/Banner_Section.css";
-import Banner from "./components/Banner";
+import "../../styles/home/Banner_section.css";
 import Banner_Section from "./components/Banner_Section";
-// import Clients from "./components/Clients";
 import Dedication_section from "./components/Dedication_section";
 import Designs from "./components/Designs";
 import Footer from "./components/Footer";
@@ -15,9 +13,7 @@ const Home = () => {
   return (
     <>
       <Banner_Section />
-      {/* <Clients/> */}
       <Services />
-      {/* <Banner /> */}
       <Designs />
       <Dedication_section />
       <Gallery />
