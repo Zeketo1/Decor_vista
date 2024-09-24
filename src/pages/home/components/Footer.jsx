@@ -24,7 +24,6 @@ const Footer = () => {
         "Luxury White Bed",
       ],
     },
-
     {
       title: "Sitemap",
       links: ["Home", "Blog", "About Us", "Contact US"],

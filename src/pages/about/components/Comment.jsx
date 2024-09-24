@@ -55,7 +55,7 @@ const Comment = () => {
               <img src={image} alt="" className="review-image" />
               <div className="review-content">
                 <h1 className="review-name">{name}</h1>
-                <p className="review-job">{job}</p>
+                {/* <p className="review-job">{job}</p> */}
                 <p className="review-comment">{comment}</p>
                 <div className="review-divider"></div>
                 <img src={star} alt="" className="review-star" />
