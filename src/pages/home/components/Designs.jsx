@@ -25,7 +25,7 @@ const Designs = () => {
 
             <div className="designs">
                 {designs.slice(0,8).map(design => (
-                    <DesignCard key={design.id} title={design.title} price={500} image={design.image} designer={design.designer}/>
+                    <DesignCard item={design} key={design.id} title={design.title} price={design.price} image={design.image} designer={design.designer}/>
                 ))}
             </div>
         </section>

@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import { showToast } from "../../pages/utils";
 
 export const GalleryContext = createContext(null);
 
@@ -28,13 +29,16 @@ const GalleryProvider = ({ children }) => {
     } else {
       setGalleryDatas((p) => [...p, { ...item, quantity: 1 }]);
     }
+    showToast("Added to cart", "success");
   };
 
   const removeFromCart = (productId) =>
     setGalleryDatas((p) => p.filter((item) => item.id !== productId));
 
   const reduceProductQuantity = (productId) => {
-    let itemToRemove = galleryDatas.find((gallerydata) => gallerydata.id === productId);
+    let itemToRemove = galleryDatas.find(
+      (gallerydata) => gallerydata.id === productId
+    );
     if (itemToRemove.quantity > 1) {
       setGalleryDatas((p) =>
         p.map((gallerydata) =>
@@ -59,9 +63,9 @@ const GalleryProvider = ({ children }) => {
     );
 
     const subtotal2 = galleryDatas.reduce(
-        (total, item) => total + item.price * item.quantity,
-        0 + 5
-      );
+      (total, item) => total + item.price * item.quantity,
+      0 + 5
+    );
 
     const formattedTotalPrice = totalPrice.toLocaleString("en-US", {
       style: "currency",
@@ -72,9 +76,9 @@ const GalleryProvider = ({ children }) => {
       currency: "USD",
     });
     const formattedTotalPrice3 = subtotal.toLocaleString("en-US", {
-        style: "currency",
-        currency: "USD",
-      });
+      style: "currency",
+      currency: "USD",
+    });
     return [formattedTotalPrice, formattedTotalPrice2, formattedTotalPrice3];
   };
 

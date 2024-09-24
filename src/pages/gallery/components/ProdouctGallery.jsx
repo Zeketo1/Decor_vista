@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import "../../../styles/gallery/ProductGallery.css";
 import { gallery } from "../../../data/gallery/gallery";
 import { GalleryContext } from "../../../context/gallery/GalleryProvider";
-import { showToast } from "../../utils";
 
 const ProductGallery = () => {
   const { addToCart, galleryDatas } = useContext(GalleryContext);
@@ -19,7 +18,6 @@ const ProductGallery = () => {
     if (pageContent) {
       addToCart(pageContent);
     }
-    showToast("Added to cart", "success");
   };
 
   console.log(galleryDatas);
