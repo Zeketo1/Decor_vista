@@ -49,6 +49,7 @@ const Footer = () => {
         </div>
 
         {quickLinks.map((link) => (
+          
           <div className="links-container" key={link.title}>
             <span>{link.title}</span>
 

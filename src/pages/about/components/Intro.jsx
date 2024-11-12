@@ -7,7 +7,6 @@ import vector3 from "../../../assets/images/vector3.png"
 import vector4 from "../../../assets/images/vector4.png"
 import vector8 from "../../../assets/images/vector8.png"
 import vector6 from "../../../assets/images/vector6.png"
-import vector7 from "../../../assets/images/vector7.png"
 import { motion } from "framer-motion";
 import {
   PiCheckCircleThin,

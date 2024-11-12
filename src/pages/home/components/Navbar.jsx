@@ -60,7 +60,8 @@ const Navbar = () => {
         scrolled ? "active" : menuActive ? "active" : ""
       } `}
     >
-      <img src={logo} className="main_logo" />
+      <Link to="/"><img src={logo} className="main_logo" /></Link>
+      
 
       <nav
         className={`nav-links ${
